@@ -4,8 +4,6 @@ const { Client, Intents, Collection } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 // init Discord client
 const client = new Client({ disableEveryone: true, intents: [Intents.FLAGS.GUILDS] });
-// init filesystem
-const fs = require('fs');
 // init config
 const config = require('./config.json');
 
@@ -19,7 +17,7 @@ client.login(process.env.DCtoken)
     // import Functions and Commands
     config.setup.startupFunctions.forEach((FCN) => {
       const INIT = require(`./functions/${FCN}.js`);
-      INIT.run(client, fs, config);
+      INIT.run(client, config);
     });
   });
 

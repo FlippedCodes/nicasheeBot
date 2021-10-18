@@ -1,0 +1,28 @@
+{
+    "name": "testbot to get used to new api",
+    "clientId": "395581313052180483",
+    "setup": {
+        "moduleFolders": {
+            "functionsFolder": "functions",
+            "commandsFolder": "commands"
+        },
+        "startupFunctions": [
+            "STARTUP_initCommands"
+        ],
+        "setupFunctions": [
+            "SETUP_offlineStat",
+            "SETUP_status"
+        ],
+        "setupFunctionsOnce": [
+            "TCKR_offlineStat"
+        ]
+    },
+    "functions": {
+        "userTagRecord": {
+            "maxCacheTimeout": 10800000
+        }
+    },
+    "teamRole": "638670637052854282",
+    "logStatusChannel": "638793508202741790",
+    "lookupBotBadge": "<:system_bot_notifier:813101401646432298>"
+}

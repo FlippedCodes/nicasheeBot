@@ -10,7 +10,7 @@ module.exports.run = () => {
     {
       host: process.env.DBhost,
       dialect: 'mysql',
-      logging: process.env.NODE_ENV === 'development' ? true : false,
+      logging: process.env.NODE_ENV === 'development',
     },
   );
   console.log('[DB] Connected!');

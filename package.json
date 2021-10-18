@@ -16,12 +16,14 @@
     "discord-api-types": "^0.23.1",
     "discord.js": "^13.1.0",
     "erlpack": "github:discord/erlpack",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.7.0",
     "utf-8-validate": "^5.0.6",
     "zlib-sync": "^0.1.7"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.24.2"
+    "eslint-plugin-import": "^2.25.2"
   }
 }

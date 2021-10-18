@@ -1,13 +1,13 @@
 {
   "name": "nicasheebot",
   "version": "2.0.0",
-  "description": "",
+  "description": "Fork of Gurglebot with checkin and nsfw access mgmt.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Phil",
   "license": "ISC",
   "dependencies": {
     "@discordjs/builders": "^0.6.0",

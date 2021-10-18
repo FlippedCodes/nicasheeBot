@@ -15,7 +15,7 @@ module.exports.run = (client, fs, config) => {
     if (jsfiles.length <= 0) return console.log(`[${module.exports.help.name}] No command(s) to load!`);
 
     // announcing command loading
-    if (process.env.NODE_ENV === 'development') console.log(`[${module.exports.help.name}] Loading ${jsfiles.length} command(s)...`);
+    if (process.env.NODE_ENV === 'development') console.log(`[${module.exports.help.name}] Loading ${jsfiles.length} command${jsfiles.length === 1 ? 's' : ''}...`);
 
     // adding all commands
     await jsfiles.forEach((f, i) => {
@@ -28,10 +28,10 @@ module.exports.run = (client, fs, config) => {
       commandsSubmit.push(probs.data.toJSON());
     });
 
-    await console.log(`[${module.exports.help.name}] Loaded ${jsfiles.length} command(s)!`);
-    await console.log(`[${module.exports.help.name}] Registering command(s)!`);
+    await console.log(`[${module.exports.help.name}] Loaded ${jsfiles.length} command${jsfiles.length === 1 ? 's' : ''}!`);
+    await console.log(`[${module.exports.help.name}] Registering ${jsfiles.length} command${jsfiles.length === 1 ? 's' : ''}!`);
     await client.application.commands.set(commandsSubmit, process.env.NODE_ENV === 'development' ? process.env.devGuild : undefined).catch(console.error);
-    console.log(`[${module.exports.help.name}] Commands(s) registered!`);
+    console.log(`[${module.exports.help.name}] ${jsfiles.length} commands${jsfiles.length === 1 ? 's' : ''} registered!`);
   });
 };
 

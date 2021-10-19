@@ -26,7 +26,7 @@ if (DEBUG) console.log(`[${config.name}] Bot is on Debug-Mode. Some functions ar
 // Login the bot
 client.login(process.env.DCtoken)
   .then(() => {
-    // import Functions and Commands
+    // import Functions and Commands; startup database connection
     fs.readdirSync('./functions/STARTUP').forEach((FCN) => {
       if (FCN.search('.js') === -1) return;
       const INIT = require(`./functions/STARTUP/${FCN}`);
@@ -34,9 +34,14 @@ client.login(process.env.DCtoken)
     });
   });
 
-client.once('ready', () => {
+client.on('ready', async () => {
   // confirm user logged in
   console.log(`[${config.name}] Logged in as "${client.user.tag}"!`);
+
+  // setup tables
+  console.log('[DB] Syncing tables...');
+  await sequelize.sync();
+  await console.log('[DB] Done syncing!');
 
   // set bot user status
   const setupFunctions = client.functions.filter((fcn) => fcn.help.callOn === 'setup');

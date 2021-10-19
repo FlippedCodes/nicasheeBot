@@ -37,10 +37,10 @@ client.login(process.env.DCtoken)
 client.once('ready', () => {
   // confirm user logged in
   console.log(`[${config.name}] Logged in as "${client.user.tag}"!`);
-  // set bot player status
-  config.setup.setupFunctions.forEach((FCN) => {
-    client.functions.get(FCN).run(client, config);
-  });
+
+  // set bot user status
+  const setupFunctions = client.functions.filter((fcn) => fcn.help.callOn === 'setup');
+  setupFunctions.forEach((FCN) => FCN.run());
 });
 
 client.on('interactionCreate', async (interaction) => {

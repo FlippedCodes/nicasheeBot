@@ -1,21 +1,11 @@
 {
     "name": "NicasheeBot",
     "clientId": "395581313052180483",
+    "guildId": "730609289110224947",
     "setup": {
-        "moduleFolders": {
-            "functionsFolder": "functions",
-            "commandsFolder": "commands"
-        },
-        "startupFunctions": [
-            "STARTUP_DBConnection",
-            "STARTUP_initCommands"
-        ],
         "setupFunctions": [
             "SETUP_offlineStat",
             "SETUP_status"
-        ],
-        "setupFunctionsOnce": [
-            "TCKR_offlineStat"
         ]
     },
     "functions": {

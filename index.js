@@ -14,6 +14,8 @@ global.DEBUG = process.env.NODE_ENV === 'development';
 
 global.CmdBuilder = SlashCommandBuilder;
 
+global.ERR = (err) => console.error('ERROR:', err);
+
 // creating collections
 client.commands = new Collection();
 client.functions = new Collection();

@@ -3,15 +3,11 @@
     "clientId": "395581313052180483",
     "guildId": "730609289110224947",
     "setup": {
+        "logStatusChannel": "470889870160822273",
         "setupFunctions": [
             "SETUP_offlineStat",
             "SETUP_status"
         ]
-    },
-    "functions": {
-        "userTagRecord": {
-            "maxCacheTimeout": 10800000
-        }
     },
     "teamRole": "638670637052854282",
     "logStatusChannel": "638793508202741790",

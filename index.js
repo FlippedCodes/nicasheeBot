@@ -20,6 +20,9 @@ global.ERR = (err) => console.error('ERROR:', err);
 client.commands = new Collection();
 client.functions = new Collection();
 
+// anouncing debug mode
+if (DEBUG) console.log(`[${config.name}] Bot is on Debug-Mode. Some functions are not going to be loaded.`);
+
 // Login the bot
 client.login(process.env.DCtoken)
   .then(() => {

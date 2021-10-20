@@ -18,7 +18,7 @@ module.exports.run = async () => {
   if (offlineTime) {
     embed
       .addField('The time the bot went offline:', `${toTime(startupTime - offlineTime.time * 1)}`, false)
-      .addField('The bot went offline at:', new Date(offlineTime.time * 1), false);
+      .addField('The bot went offline at:', `${new Date(offlineTime.time * 1)}`, false);
   } else {
     embed.setDescription('The time that the bot was offline, is missing. A new entry got created!');
   }

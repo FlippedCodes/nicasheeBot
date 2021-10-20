@@ -8,7 +8,7 @@ const OfflineStat = require('../../database/models/OfflineStat');
 
 module.exports.run = async () => {
   if (DEBUG) return;
-  console.log(`[${module.exports.help.name}] Posting bot status message!`);
+  console.log(`[${module.exports.data.name}] Posting bot status message!`);
   const embed = new MessageEmbed()
     .setTitle('Gurglebot - Bot back online!')
     .setColor(4296754)
@@ -35,7 +35,7 @@ module.exports.run = async () => {
   }, 1 * 5000);
 };
 
-module.exports.help = {
+module.exports.data = {
   name: 'offlineStat',
   callOn: 'setup',
 };

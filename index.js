@@ -44,7 +44,7 @@ client.on('ready', async () => {
   await console.log('[DB] Done syncing!');
 
   // set bot user status
-  const setupFunctions = client.functions.filter((fcn) => fcn.help.callOn === 'setup');
+  const setupFunctions = client.functions.filter((fcn) => fcn.data.callOn === 'setup');
   setupFunctions.forEach((FCN) => FCN.run());
 });
 

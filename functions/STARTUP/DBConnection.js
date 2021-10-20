@@ -18,6 +18,6 @@ module.exports.run = () => {
   global.sequelize = sequelize;
 };
 
-module.exports.help = {
+module.exports.data = {
   name: 'DBConnection',
 };

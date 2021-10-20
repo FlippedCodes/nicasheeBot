@@ -1,13 +1,10 @@
 module.exports.run = async () => {
   if (DEBUG) return;
-  console.log(`[${module.exports.help.name}] Setting status...`);
-  client.user.setStatus('online');
-  const membercount = client.guilds.cache.reduce((previousCount, currentGuild) => previousCount + currentGuild.memberCount, 0);
-  client.user.setActivity(`${membercount} members in VoreNetwork`, { type: 'WATCHING' })
-    .then(() => console.log(`[${module.exports.help.name}] Status set!`));
+  console.log(`[${module.exports.data.name}] Setting status...`);
+  console.log(`[${module.exports.data.name}] Status set!`);
 };
 
-module.exports.help = {
+module.exports.data = {
   name: 'status',
   callOn: 'setup',
 };

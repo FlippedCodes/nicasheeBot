@@ -20,9 +20,9 @@ module.exports.run = async (fs) => {
   const jsfiles = files.filter((f) => f.split('.').pop() === 'js');
   const cmdLength = jsfiles.length;
   // check if commands are there
-  if (cmdLength <= 0) return console.log(`[${module.exports.help.name}] No command(s) to load!`);
+  if (cmdLength <= 0) return console.log(`[${module.exports.data.name}] No command(s) to load!`);
   // announcing command loading
-  if (DEBUG) console.log(`[${module.exports.help.name}] Loading ${cmdLength} command${cmdLength !== 1 ? 's' : ''}...`);
+  if (DEBUG) console.log(`[${module.exports.data.name}] Loading ${cmdLength} command${cmdLength !== 1 ? 's' : ''}...`);
 
   // adding all commands
   await jsfiles.forEach((f, i) => {
@@ -36,7 +36,7 @@ module.exports.run = async (fs) => {
     // abort entry if in disabled folder
     if (cleanName.search('archive_') !== -1) return;
     // announcing command loading
-    if (DEBUG) console.log(`[${module.exports.help.name}]     ${i + 1}) Loaded: ${cleanName}!`);
+    if (DEBUG) console.log(`[${module.exports.data.name}]     ${i + 1}) Loaded: ${cleanName}!`);
     // adding command to collection
     client.commands.set(cleanName, probs);
     // if not subcommand: adding command to submittion to discord
@@ -44,14 +44,14 @@ module.exports.run = async (fs) => {
   });
   const registerLength = commandsSubmit.length;
 
-  await console.log(`[${module.exports.help.name}] Loaded ${cmdLength} command${cmdLength !== 1 ? 's' : ''}!`);
-  await console.log(`[${module.exports.help.name}] Registering ${registerLength} command${registerLength !== 1 ? 's' : ''}!`);
+  await console.log(`[${module.exports.data.name}] Loaded ${cmdLength} command${cmdLength !== 1 ? 's' : ''}!`);
+  await console.log(`[${module.exports.data.name}] Registering ${registerLength} command${registerLength !== 1 ? 's' : ''}!`);
   // submit commands to discord api| Dev: one guild only, prod: globaly
-  await client.application.commands.set(commandsSubmit, config.guildId).catch(console.error);
+  await client.application.commands.set(commandsSubmit, config.guildId).catch(ERR);
   // await client.application.commands.set(commandsSubmit, DEBUG ? process.env.devGuild : undefined).catch(console.error);
-  console.log(`[${module.exports.help.name}] ${registerLength} command${registerLength !== 1 ? 's' : ''} registered!`);
+  console.log(`[${module.exports.data.name}] ${registerLength} command${registerLength !== 1 ? 's' : ''} registered!`);
 };
 
-module.exports.help = {
+module.exports.data = {
   name: 'initCommands',
 };

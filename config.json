@@ -3,7 +3,7 @@
     "clientId": "395581313052180483",
     "guildId": "730609289110224947",
     "setup": {
-        "logStatusChannel": "470889870160822273",
+        "logStatusChannel": "892536217458057246",
         "setupFunctions": [
             "SETUP_offlineStat",
             "SETUP_status"

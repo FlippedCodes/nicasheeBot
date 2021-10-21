@@ -2,6 +2,7 @@
     "name": "NicasheeBot",
     "clientId": "395581313052180483",
     "guildId": "730609289110224947",
+    "teamRole": "730609289256894469",
     "setup": {
         "logStatusChannel": "892536217458057246",
         "setupFunctions": [
@@ -9,7 +10,20 @@
             "SETUP_status"
         ]
     },
-    "teamRole": "638670637052854282",
-    "logStatusChannel": "638793508202741790",
-    "lookupBotBadge": "<:system_bot_notifier:813101401646432298>"
+    "checkin": {
+        "reaction": {
+            "channel": "730609289261088794",
+            "message": "859718788013883422",
+            "emoji": "🐍"
+        },
+        "categoryID": "851237127081426974",
+        "welcomeChannel": "731037691495317556",
+        "archiveChannel": "892536217458057246",
+        "ignoreChannels": ["730609289261088794"],
+        "checkinRoles": ["892538979340128299", "807431837709238282"]
+    },
+    "DoBchecking": {
+        "dateFormats": ["YYYY/MM/DD", "DD/MM/YYYY"],
+        "logChannelID": "892536217458057246"
+    }
 }

@@ -4,7 +4,7 @@ const { Client, Intents, Collection } = require('discord.js');
 const fs = require('fs');
 // init command builder
 const { SlashCommandBuilder } = require('@discordjs/builders');
-// setting global values
+// setting essential global values
 // init Discord client
 global.client = new Client({ disableEveryone: true, intents: [Intents.FLAGS.GUILDS] });
 // init config
@@ -12,6 +12,7 @@ global.config = require('./config.json');
 
 global.DEBUG = process.env.NODE_ENV === 'development';
 
+// global.main = {};
 global.CmdBuilder = SlashCommandBuilder;
 
 global.ERR = (err) => console.error('ERROR:', err);

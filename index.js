@@ -25,7 +25,7 @@ client.functions = new Collection();
 if (DEBUG) console.log(`[${config.name}] Bot is on Debug-Mode. Some functions are not going to be loaded.`);
 
 // Login the bot
-client.login(process.env.DCtoken)
+client.login(process.env.DISCORD_BOT_TOKEN)
   .then(() => {
     // import Functions and Commands; startup database connection
     fs.readdirSync('./functions/STARTUP').forEach((FCN) => {

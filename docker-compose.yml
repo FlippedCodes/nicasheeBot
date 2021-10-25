@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       BotToken: ${DISCORD_BOT_TOKEN}
-      DBHost: gurglebot_db_gb_1
+      DB_HOST: gurglebot_db_gb_1
       DBName: gurglebot
       DB_user: gurglebot
       DBPassw: ${DB_PASSWORD}

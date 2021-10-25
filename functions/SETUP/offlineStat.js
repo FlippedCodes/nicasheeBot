@@ -10,7 +10,7 @@ module.exports.run = async () => {
   if (DEBUG) return;
   console.log(`[${module.exports.data.name}] Posting bot status message!`);
   const embed = new MessageEmbed()
-    .setTitle('Gurglebot - Bot back online!')
+    .setTitle('Nicashee - Command Instance - Bot back online!')
     .setColor(4296754)
     .setFooter(client.user.tag, client.user.displayAvatarURL)
     .setTimestamp();

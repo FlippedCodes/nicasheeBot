@@ -30,7 +30,7 @@ module.exports.run = async (fs) => {
     const probs = require(`../../${f}`);
     // cleanup name
     const cleanName = f
-      .replace(/\\/g, '_')
+      .replace(/\\|\//g, '_')
       .replace('commands_', '')
       .replace('.js', '');
     // abort entry if in disabled folder

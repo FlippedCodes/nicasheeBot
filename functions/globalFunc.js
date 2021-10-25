@@ -3,6 +3,11 @@ global.messageFail = async (interaction, body) => {
     .run(interaction, body, '', 16449540, false);
 };
 
+global.prettyCheck = (question) => {
+  if (question) return '✅';
+  return '❌';
+};
+
 module.exports.data = {
   name: 'globalFunc',
 };

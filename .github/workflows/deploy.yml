@@ -5,8 +5,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ ]
-    # branches: [ master ] - disabled due to still in dev
+    branches: [ master ]
 
 jobs:
   build:

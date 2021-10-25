@@ -15,6 +15,7 @@
     "eslint-plugin-import": "^2.25.2"
   },
   "dependencies": {
-    "@discordjs/builders": "^0.7.0"
+    "@discordjs/builders": "^0.7.0",
+    "discord.js": "^13.2.0"
   }
 }

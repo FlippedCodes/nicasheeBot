@@ -10,6 +10,7 @@ services:
       DBhost: gurglebot_db_gb_1
       DBusername: gurglebot
       DBpassword: ${DB_PASSWORD}
+      NODE_ENV: development
 
 networks:
   default:

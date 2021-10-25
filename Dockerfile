@@ -5,8 +5,9 @@ FROM node:16.12-buster-slim
 WORKDIR /usr/src/app
 
 #  npm ERR! gyp ERR! stack Error: Could not find any Python installation to use
-RUN apt install --update python make g++\
-  && rm -rf /var/cache/apk/*
+RUN apt update -y && apt install -y python make g++
+# \
+  # && rm -rf /var/cache/apk/*
 
 # Get app dependencies
 COPY package*.json ./

@@ -4,9 +4,6 @@ FROM node:16.12-buster-slim
 # Create app directory
 WORKDIR /usr/src/app
 
-# npm ERR! gyp ERR! stack Error: Could not find any Python installation to use
-# RUN npm install -g node-gyp
-
 # Get app dependencies
 COPY package*.json ./
 

@@ -12,7 +12,7 @@ function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, allow
     .setDescription(`${userTag} got added to the DB!`)
     .addFields([
       { name: 'ID', value: userID, inline: true },
-      { name: 'Age', value: `${age}`, inline: true },
+      { name: 'Age', value: String(age), inline: true },
       { name: 'DoB', value: DoB, inline: true },
       { name: 'Allow', value: prettyCheck(allow), inline: true },
       { name: 'Created by', value: teammemberTag, inline: true },
@@ -48,7 +48,7 @@ module.exports.run = async (interaction, moment, MessageEmbed) => {
   // get allow
   const [allow, age] = checkAllowed(moment, date);
   // format date
-  const formatDate = date.format('YYYY-MM-DD');
+  const formatDate = date.format(config.DoBchecking.dateFormats[0]);
   // add entry
   const added = await addUser(userID, formatDate, allow, interaction.user.id);
   // report to user if entry added

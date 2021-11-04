@@ -35,7 +35,7 @@ async function checkPing(interaction) {
   interaction.editReply({ embeds: [editedMessage(sentReply, interaction)] });
 }
 
-module.exports.run = async (client, interaction) => checkPing(interaction);
+module.exports.run = async (interaction) => checkPing(interaction);
 
 module.exports.data = new CmdBuilder()
   .setName('ping')

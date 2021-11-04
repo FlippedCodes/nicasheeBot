@@ -3,6 +3,7 @@
     "clientId": "395581313052180483",
     "guildId": "730609289110224947",
     "teamRole": "730609289256894469",
+    "ownerRole": "730609289261088792",
     "setup": {
         "logStatusChannel": "892536217458057246",
         "setupFunctions": [

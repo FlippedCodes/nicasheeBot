@@ -31,9 +31,9 @@ async function updateUser(ID, DoB, allow, teammemberID) {
   return true;
 }
 
-function checkAllowed(moment, DoB) {
+function getAge(moment, DoB) {
   const age = moment().diff(DoB, 'years');
-  return [age >= 18, age];
+  return age;
 }
 
 module.exports.run = async (interaction, moment, MessageEmbed) => {
@@ -46,7 +46,8 @@ module.exports.run = async (interaction, moment, MessageEmbed) => {
   // validate date
   if (!date.isValid()) return messageFail(interaction, 'Your provided DoB is not a date!');
   // get allow
-  const [allow, age] = checkAllowed(moment, date);
+  const age = getAge(moment, date);
+  const allow = false;
   // format date
   const formatDate = date.format(config.DoBchecking.dateFormats[0]);
   // add entry

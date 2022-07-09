@@ -14,7 +14,7 @@
     "checkin": {
         "reaction": {
             "channel": "730609289261088794",
-            "message": "859718788013883422",
+            "message": "913622376607006780",
             "emoji": "🐍"
         },
         "categoryID": "851237127081426974",
@@ -26,5 +26,6 @@
     "DoBchecking": {
         "dateFormats": ["YYYY/MM/DD", "DD/MM/YYYY"],
         "logChannelID": "892536217458057246"
-    }
+    },
+    "aboutText": "./config/about.txt"
 }

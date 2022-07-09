@@ -6,7 +6,7 @@ const fs = require('fs');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 // setting essential global values
 // init Discord client
-global.client = new Client({ disableEveryone: true, intents: [Intents.FLAGS.GUILDS] });
+global.client = new Client({ disableEveryone: true, intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS] });
 // init config
 global.config = require('./config.json');
 
@@ -55,8 +55,13 @@ client.on('ready', async () => {
   await console.log('[DB] Done syncing!');
 
   // set bot user status
-  const setupFunctions = client.functions.filter((fcn) => fcn.data.callOn === 'setup');
-  setupFunctions.forEach((FCN) => FCN.run());
+  // const setupFunctions = client.functions.filter((fcn) => fcn.data.callOn === 'setup');
+  // setupFunctions.forEach((FCN) => FCN.run());
+
+  // run setup functions
+  config.setup.setupFunctions.forEach((FCN) => {
+    client.functions.get(FCN).run();
+  });
 });
 
 client.on('interactionCreate', async (interaction) => {
@@ -64,6 +69,25 @@ client.on('interactionCreate', async (interaction) => {
   if (interaction.isCommand()) {
     const command = client.commands.get(interaction.commandName);
     if (command) return command.run(interaction).catch(console.log);
+  }
+});
+
+client.on('messageCreate', async (message) => {
+  client.functions.get('EVENT_message').run(message);
+});
+
+client.on('guildMemberRemove', async (member) => {
+  client.functions.get('EVENT_guildMemberRemove').run(member);
+});
+
+client.on('messageReactionAdd', async (reaction, user) => {
+  client.functions.get('EVENT_messageReactionAdd').run(reaction, user);
+});
+
+// trigger on reaction with raw package
+client.on('raw', async (packet) => {
+  if (packet.t === 'MESSAGE_REACTION_ADD' && packet.d.guild_id) {
+    client.functions.get('ENGINE_checkin_initReaction').run(packet.d);
   }
 });
 

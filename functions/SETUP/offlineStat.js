@@ -10,7 +10,7 @@ module.exports.run = async () => {
   if (DEBUG) return;
   console.log(`[${module.exports.data.name}] Posting bot status message!`);
   const embed = new EmbedBuilder()
-    .setTitle('AgentBlack - Bot back online!')
+    .setTitle('Nicashee - Bot back online!')
     .setColor('Green')
     .setFooter({ text: client.user.tag, icon_url: client.user.displayAvatarURL })
     .setTimestamp();

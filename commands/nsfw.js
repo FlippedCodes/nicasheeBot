@@ -18,7 +18,7 @@ module.exports.data = new CmdBuilder()
     .setName('add')
     .setDescription('Adds an entry.')
     .addUserOption((option) => option.setName('user').setDescription('Provide a user to to add.').setRequired(true))
-    .addStringOption((option) => option.setName('date').setDescription('Provide the users DoB.').setRequired(true)))
+    .addStringOption((option) => option.setName('date').setDescription('Provide the users DoB. Format: YYYY/MM/DD').setRequired(true)))
   .addSubcommand((subcommand) => subcommand
     .setName('allow')
     .setDescription('Allow access to nsfw rooms.')
@@ -28,7 +28,7 @@ module.exports.data = new CmdBuilder()
     .setName('change')
     .setDescription('Change the DoB of an entry.')
     .addUserOption((option) => option.setName('user').setDescription('Provide a user to to add.').setRequired(true))
-    .addStringOption((option) => option.setName('date').setDescription('Provide the users DoB.').setRequired(true)))
+    .addStringOption((option) => option.setName('date').setDescription('Provide the users DoB. Format: YYYY/MM/DD').setRequired(true)))
   .addSubcommand((subcommand) => subcommand
     .setName('search')
     .setDescription('Search an entry.')
@@ -36,4 +36,4 @@ module.exports.data = new CmdBuilder()
   .addSubcommand((subcommand) => subcommand
     .setName('calc')
     .setDescription('Calcupate the age from a DoB')
-    .addStringOption((option) => option.setName('date').setDescription('Provide the users DoB.').setRequired(true)));
+    .addStringOption((option) => option.setName('date').setDescription('Provide the users DoB. Format: YYYY/MM/DD').setRequired(true)));

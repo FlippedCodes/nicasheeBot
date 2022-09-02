@@ -6,7 +6,10 @@
     "setup": {
         "logStatusChannel": "892536217458057246",
         "setupFunctions": [
+            "SETUP_DBSync",
+            "SETUP_initCommands",
             "SETUP_offlineStat",
+            "SETUP_roleRequest",
             "SETUP_status"
         ]
     },
@@ -26,5 +29,5 @@
         "dateFormats": ["YYYY/MM/DD", "DD/MM/YYYY"],
         "logChannelID": "892536217458057246"
     },
-    "aboutText": "./about.txt"
+    "aboutText": "./readme.md"
 }

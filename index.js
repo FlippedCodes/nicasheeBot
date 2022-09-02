@@ -45,29 +45,23 @@ client.functions = new Collection();
 // anouncing debug mode
 if (DEBUG) console.log(`[${config.name}] Bot is on Debug-Mode. Some functions are not going to be loaded.`);
 
-// Login the bot
-client.login(process.env.DCtoken)
-  .then(() => {
-    // import Functions and Commands; startup database connection
-    fs.readdirSync('./functions/STARTUP').forEach((FCN) => {
-      if (FCN.search('.js') === -1) return;
-      const INIT = require(`./functions/STARTUP/${FCN}`);
-      INIT.run(fs);
-    });
+(async () => {
+  // startup functions in order
+  // const startupQueue = new PQueue({ concurrency: 1 });
+  const files = await fs.readdirSync('./functions/STARTUP');
+  files.forEach(async (FCN) => {
+    if (!FCN.endsWith('.js')) return;
+    const INIT = require(`./functions/STARTUP/${FCN}`);
+    await INIT.run(fs);
   });
+
+  // When done: Login the bot
+  await client.login(process.env.DCtoken);
+})();
 
 client.on('ready', async () => {
   // confirm user logged in
-  console.log(`[${config.name}] Logged in as "${client.user.tag}"!`);
-
-  // setup tables
-  console.log('[DB] Syncing tables...');
-  await sequelize.sync();
-  await console.log('[DB] Done syncing!');
-
-  // set bot user status
-  // const setupFunctions = client.functions.filter((fcn) => fcn.data.callOn === 'setup');
-  // setupFunctions.forEach((FCN) => FCN.run());
+  console.log(`[${config.package.name}] Logged in as "${client.user.tag}"!`);
 
   // run setup functions
   config.setup.setupFunctions.forEach((FCN) => {
@@ -75,24 +69,14 @@ client.on('ready', async () => {
   });
 });
 
-client.on('interactionCreate', async (interaction) => {
-  // command handler
-  if (interaction.isCommand()) {
-    const command = client.commands.get(interaction.commandName);
-    if (command) return command.run(interaction).catch(console.log);
-  }
+client.on('interactionCreate', (interaction) => client.functions.get('EVENT_interactionCreate').run(interaction));
+
+client.on('messageCreate', (message) => {
+  client.functions.get('EVENT_messageCreate').run(message).catch(ERR);
 });
 
-client.on('messageCreate', async (message) => {
-  client.functions.get('EVENT_message').run(message);
-});
-
-client.on('guildMemberRemove', async (member) => {
-  client.functions.get('EVENT_guildMemberRemove').run(member);
-});
-
-client.on('messageReactionAdd', async (reaction, user) => {
-  client.functions.get('EVENT_messageReactionAdd').run(reaction, user);
+client.on('guildMemberRemove', (member) => {
+  client.functions.get('EVENT_guildMemberRemove').run(member).catch(ERR);
 });
 
 // trigger on reaction with raw package

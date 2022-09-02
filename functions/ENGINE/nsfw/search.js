@@ -14,11 +14,11 @@ async function searchUser(ID) {
   return result;
 }
 
-function sendMessage(MessageEmbed, channel, userTag, userID, age, DoB, allow, teammemberTag, updated, created) {
+function sendMessage(EmbedBuilder, channel, userTag, userID, age, DoB, allow, teammemberTag, updated, created) {
   let color = 16741376;
   if (allow) color = 4296754;
 
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
     .setColor(color)
     .setTitle(`${userTag}`)
     .addFields([
@@ -35,7 +35,7 @@ function sendMessage(MessageEmbed, channel, userTag, userID, age, DoB, allow, te
   channel.send({ embeds: [embed] });
 }
 
-module.exports.run = async (message, MessageEmbed, userID) => {
+module.exports.run = async (message, EmbedBuilder, userID) => {
   // search entry
   const DBentry = await searchUser(userID);
   // report to user if entry added
@@ -49,7 +49,7 @@ module.exports.run = async (message, MessageEmbed, userID) => {
   const [updatedAt, createdAt] = [DBentry.updatedAt, DBentry.createdAt].map((date) => moment(date).format('ddd, MMM Do YYYY, h:mm a'));
   const formatDoB = moment(DoB).format('YYYY-MM-DD');
   // send it
-  sendMessage(MessageEmbed, message.channel, userTag, userID, age, formatDoB, DBentry.allow, teammemberTag, updatedAt, createdAt);
+  sendMessage(EmbedBuilder, message.channel, userTag, userID, age, formatDoB, DBentry.allow, teammemberTag, updatedAt, createdAt);
 };
 
 module.exports.data = {

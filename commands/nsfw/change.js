@@ -1,8 +1,8 @@
 const userDoB = require('../../database/models/UserDoB');
 
-function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, allow, teammemberTag) {
+function sendMessage(EmbedBuilder, interaction, userTag, userID, age, DoB, allow, teammemberTag) {
   // needs to be local as settings overlap from different embed-requests
-  const embed = new MessageEmbed();
+  const embed = new EmbedBuilder();
 
   let color = 16741376;
   if (allow) color = 4296754;
@@ -20,7 +20,7 @@ function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, allow
 
   const content = { embeds: [embed] };
   // send feedback
-  interaction.reply(content);
+  reply(interaction, content);
   // send in log
   interaction.guild.channels.cache.find(({ id }) => id === config.DoBchecking.logChannelID).send(content);
 }
@@ -36,7 +36,7 @@ function getAge(moment, DoB) {
   return age;
 }
 
-module.exports.run = async (interaction, moment, MessageEmbed) => {
+module.exports.run = async (interaction, moment, EmbedBuilder) => {
   const command = interaction.options;
   // get user and ID
   const user = command.getUser('user', true);
@@ -55,7 +55,7 @@ module.exports.run = async (interaction, moment, MessageEmbed) => {
   // report to user if entry added
   if (added) {
     // send log and user confirmation
-    sendMessage(MessageEmbed, interaction, user.tag, userID, age, formatDate, allow, interaction.user.tag);
+    sendMessage(EmbedBuilder, interaction, user.tag, userID, age, formatDate, allow, interaction.user.tag);
   } else {
     messageFail(interaction, 'Entry doesn\'t exist yet. Use the add command to add it first.');
   }

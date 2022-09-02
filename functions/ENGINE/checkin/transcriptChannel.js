@@ -1,4 +1,4 @@
-const { Collection, MessageEmbed } = require('discord.js');
+const { Collection, EmbedBuilder } = require('discord.js');
 
 const fs = require('fs').promises;
 
@@ -77,7 +77,7 @@ module.exports.run = async (channel) => {
   });
   const archive = channel.guild.channels.cache.get(config.checkin.archiveChannel);
   archive.send({
-    embeds: [new MessageEmbed().setTitle(channel.name)],
+    embeds: [new EmbedBuilder().setTitle(channel.name)],
     files: [{
       attachment: './cache/index.html',
       name: `${channel.name}.html`,

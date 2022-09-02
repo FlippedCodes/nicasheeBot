@@ -1,6 +1,6 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
-const toTime = require('pretty-ms');
+const moment = require('moment');
 
 const startupTime = +new Date();
 
@@ -9,28 +9,30 @@ const OfflineStat = require('../../database/models/OfflineStat');
 module.exports.run = async () => {
   if (DEBUG) return;
   console.log(`[${module.exports.data.name}] Posting bot status message!`);
-  const embed = new MessageEmbed()
-    .setTitle('Nicashee - Command Instance - Bot back online!')
-    .setColor(4296754)
-    .setFooter({ text: `${client.user.tag}`, icon_url: `${client.user.displayAvatarURL}` })
+  const embed = new EmbedBuilder()
+    .setTitle('AgentBlack - Bot back online!')
+    .setColor('Green')
+    .setFooter({ text: client.user.tag, icon_url: client.user.displayAvatarURL })
     .setTimestamp();
-  const offlineTime = await OfflineStat.findOne({ where: { ID: 1 } }).catch(ERR);
+  const offlineTime = await OfflineStat.findOne({ where: { ID: 2 } }).catch(ERR);
   if (offlineTime) {
-    embed
-      .addField('The time the bot went offline:', `${toTime(startupTime - offlineTime.time * 1)}`, false)
-      .addField('The bot went offline at:', `${new Date(offlineTime.time * 1)}`, false);
+    const timeStamp = moment(offlineTime.updatedAt);
+    embed.addFields([
+      { name: 'Heartbeat stopped at', value: `<t:${timeStamp.format('X')}:f>` },
+      { name: 'Time the bot was away', value: `${moment().diff(timeStamp, 'seconds', true)}s` },
+    ]);
   } else {
     embed.setDescription('The time that the bot was offline, is missing. A new entry got created!');
   }
-  client.channels.cache.get(config.setup.logStatusChannel).send({ embeds: [embed] });
+  client.channels.cache.get(config.logChannel).send({ embeds: [embed] });
 
   setInterval(async () => {
     // loop db update in 5 sec intervall
     const [offlineStat] = await OfflineStat.findOrCreate({
-      where: { ID: 2 }, defaults: { time: startupTime },
+      where: { ID: 1 }, defaults: { time: startupTime },
     }).catch(ERR);
     if (!offlineStat.isNewRecord) {
-      OfflineStat.update({ time: +new Date() }, { where: { ID: 2 } }).catch(ERR);
+      OfflineStat.update({ time: +new Date() }, { where: { ID: 1 } }).catch(ERR);
     }
   }, 1 * 5000);
 };

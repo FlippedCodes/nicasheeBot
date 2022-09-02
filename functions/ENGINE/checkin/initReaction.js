@@ -19,15 +19,15 @@ function calcUserAge(user) {
 }
 
 function createChannel(guild, user, topic) {
-  guild.channels.create(user.id, { type: 'text', topic, parent: config.checkin.categoryID })
+  guild.channels.create({ name: user.id, topic, parent: config.checkin.categoryID })
     .then((channel) => channel.lockPermissions())
-    .then((channel) => channel.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: true }))
-    // .then((channel) => channel.createOverwrite(user, { VIEW_CHANNEL: true }))
+    .then((channel) => channel.permissionOverwrites.edit(user.id, { ViewChannel: true }))
     .then(async (channel) => channel.send(welcomeMessage(user.id)))
     .catch(ERR);
 }
 
 module.exports.run = async (reaction) => {
+  if (DEBUG) return;
   // check emoji and channel
   const configReaction = config.checkin.reaction;
   if (reaction.member.roles.length !== 0) return;

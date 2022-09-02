@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 const fs = require('fs');
 
@@ -6,16 +6,14 @@ module.exports.run = async (interaction) => {
   fs.readFile(config.aboutText, 'utf8', (err, content) => {
     if (err) {
       console.log(err);
-      messageFail(interaction, uwu('Oh, no! Something went wrong. Sorry about that :('));
+      messageFail(interaction, 'Oh, no! Something went wrong. Sorry about that :(');
       return;
     }
-    const embed = new MessageEmbed();
-    embed.setDescription(uwu(content))
-      .setColor('ORANGE')
-      .setTitle('About')
-      .setThumbnail(config.commands.about.logo);
+    const embed = new EmbedBuilder();
+    embed.setDescription(content)
+      .setColor('Orange')
+      .setTitle('About');
     reply(interaction, { embeds: [embed] });
-    // messageSuccess(interaction, uwu(content), 'ORANGE', true);
   });
 };
 

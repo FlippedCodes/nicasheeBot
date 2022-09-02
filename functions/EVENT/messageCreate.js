@@ -12,5 +12,5 @@ module.exports.run = async (message) => {
 };
 
 module.exports.data = {
-  name: 'message',
+  name: 'messageCreate',
 };

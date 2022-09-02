@@ -5,11 +5,11 @@ async function searchUser(ID) {
   return result;
 }
 
-function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, allow, teammemberTag, updated, created) {
+function sendMessage(EmbedBuilder, interaction, userTag, userID, age, DoB, allow, teammemberTag, updated, created) {
   let color = 16741376;
   if (allow) color = 4296754;
 
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
     .setColor(color)
     .setTitle(`${userTag}`)
     .addFields([
@@ -23,10 +23,10 @@ function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, allow
     ]);
 
   // send message
-  interaction.reply({ embeds: [embed] });
+  reply(interaction, { embeds: [embed] });
 }
 
-module.exports.run = async (interaction, moment, MessageEmbed) => {
+module.exports.run = async (interaction, moment, EmbedBuilder) => {
   const command = interaction.options;
   // get user and ID
   const user = command.getUser('user', true);
@@ -45,7 +45,7 @@ module.exports.run = async (interaction, moment, MessageEmbed) => {
   const [updatedAt, createdAt] = [DBentry.updatedAt, DBentry.createdAt].map((date) => moment(date).format('ddd, MMM Do YYYY, h:mm a'));
   const formatDoB = moment(DoB).format(config.DoBchecking.dateFormats[0]);
   // send it
-  sendMessage(MessageEmbed, interaction, user.tag, userID, age, formatDoB, DBentry.allow, teammemberTag, updatedAt, createdAt);
+  sendMessage(EmbedBuilder, interaction, user.tag, userID, age, formatDoB, DBentry.allow, teammemberTag, updatedAt, createdAt);
 };
 
 module.exports.data = { subcommand: true };

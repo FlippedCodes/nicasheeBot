@@ -1,8 +1,8 @@
 const userDoB = require('../../database/models/UserDoB');
 
-function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, allow, teammemberTag) {
+function sendMessage(EmbedBuilder, interaction, userTag, userID, age, DoB, allow, teammemberTag) {
   // needs to be local as settings overlap from different embed-requests
-  const embed = new MessageEmbed();
+  const embed = new EmbedBuilder();
 
   let color = 16741376;
   if (allow) color = 4296754;
@@ -20,7 +20,7 @@ function sendMessage(MessageEmbed, interaction, userTag, userID, age, DoB, allow
 
   const content = { embeds: [embed] };
   // send feedback
-  interaction.reply(content);
+  reply(interaction, content);
   // send in log
   interaction.guild.channels.cache.find(({ id }) => id === config.DoBchecking.logChannelID).send(content);
 }
@@ -38,7 +38,7 @@ async function searchUser(ID) {
   return result;
 }
 
-module.exports.run = async (interaction, moment, MessageEmbed) => {
+module.exports.run = async (interaction, moment, EmbedBuilder) => {
   const command = interaction.options;
   // get user and ID
   const user = command.getUser('user', true);
@@ -60,7 +60,7 @@ module.exports.run = async (interaction, moment, MessageEmbed) => {
   // get teamember tag
   const teammemberTag = client.users.cache.find(({ id }) => id === DBentry.teammemberID).tag;
   // send log and user confirmation
-  sendMessage(MessageEmbed, interaction, user.tag, userID, age, formatDoB, DBentry.allow, teammemberTag);
+  sendMessage(EmbedBuilder, interaction, user.tag, userID, age, formatDoB, DBentry.allow, teammemberTag);
 };
 
 module.exports.data = { subcommand: true };

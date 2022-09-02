@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports.run = async (interaction) => {
   // only guild command
@@ -8,7 +8,7 @@ module.exports.run = async (interaction) => {
   // check if user is teammember
   if (!interaction.member.roles.cache.find(({ id }) => id === config.teamRole)) return messageFail(interaction, 'You don\'t have access to this command! òwó');
   const subName = interaction.options.getSubcommand();
-  client.commands.get(`${interaction.commandName}_${subName}`).run(interaction, moment, MessageEmbed);
+  client.commands.get(`${interaction.commandName}_${subName}`).run(interaction, moment, EmbedBuilder);
 };
 
 module.exports.data = new CmdBuilder()

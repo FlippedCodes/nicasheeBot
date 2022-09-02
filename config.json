@@ -9,7 +9,6 @@
             "SETUP_DBSync",
             "SETUP_initCommands",
             "SETUP_offlineStat",
-            "SETUP_roleRequest",
             "SETUP_status"
         ]
     },

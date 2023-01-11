@@ -7,7 +7,7 @@ services:
     environment:
       DCtoken: ${DISCORD_BOT_TOKEN}
       DBdatabase: gurglebot
-      DBhost: gurglebot_db_gb_1
+      DBhost: gurglebot-bot_gb-1
       DBusername: gurglebot
       DBpassword: ${DB_PASSWORD}
 

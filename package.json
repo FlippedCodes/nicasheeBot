@@ -15,14 +15,14 @@
     "eslint-plugin-import": "^2.25.2"
   },
   "dependencies": {
-    "@discordjs/builders": "^1.2.0",
-    "bufferutil": "^4.0.6",
-    "discord.js": "^14.3.0",
+    "@discordjs/builders": "^1.5.0",
+    "bufferutil": "^4.0.7",
+    "discord.js": "^14.8.0",
     "jsdom": "^20.0.0",
     "moment": "^2.29.4",
     "mysql2": "^2.3.3",
     "pretty-ms": "^8.0.0",
     "sequelize": "^6.8.0",
-    "utf-8-validate": "^5.0.9"
+    "utf-8-validate": "^5.0.10"
   }
 }

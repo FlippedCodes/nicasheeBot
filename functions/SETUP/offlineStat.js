@@ -14,7 +14,7 @@ module.exports.run = async () => {
     .setColor('Green')
     .setFooter({ text: client.user.tag, icon_url: client.user.displayAvatarURL })
     .setTimestamp();
-  const offlineTime = await OfflineStat.findOne({ where: { ID: 2 } }).catch(ERR);
+  const offlineTime = await OfflineStat.findOne({ where: { ID: 1 } }).catch(ERR);
   if (offlineTime) {
     const timeStamp = moment(offlineTime.updatedAt);
     embed.addFields([

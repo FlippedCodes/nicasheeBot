@@ -22,7 +22,7 @@ module.exports.run = async () => {
       { name: 'Time the bot was away', value: `${moment().diff(timeStamp, 'seconds', true)}s` },
     ]);
   } else {
-    embed.setDescription('The time that the bot was offline, is missing. A new entry got created!');
+    embed.setDescription('I can\'t remember when i went offline. A new DB entry got created!');
   }
   client.channels.cache.get(config.setup.logStatusChannel).send({ embeds: [embed] });
 

@@ -18,13 +18,16 @@ function calcUserAge(user) {
   return Math.ceil(msDiff / (1000 * 60 * 60 * 24));
 }
 
-function createChannel(guild, user, topic) {
-  guild.channels.create({ name: user.id, topic, parent: config.checkin.categoryID })
-    .then((channel) => channel.lockPermissions())
-    .then((channel) => channel.permissionOverwrites.edit(user.id, { ViewChannel: true }))
-    .then(async (channel) => channel.send(welcomeMessage(user.id)))
-    .catch(ERR);
+async function createChannel(guild, user, topic) {
+  const channel = await guild.channels.create({ name: user.id, topic, parent: config.checkin.categoryID }).catch(ERR);
+  await channel.lockPermissions().catch(ERR);
+  // needs to be delayed, because API limit causes permissions to be set in reverse order.
+  setTimeout(async () => {
+    await channel.permissionOverwrites.edit(user.id, { ViewChannel: true }).catch(ERR);
+    await channel.send(welcomeMessage(user.id)).catch(ERR);
+  }, 3 * 1000);
 }
+
 
 module.exports.run = async (reaction) => {
   if (DEBUG) return;
@@ -48,7 +51,7 @@ module.exports.run = async (reaction) => {
     Avatar: ${user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })}
     Days since creation: ${dayDiff};
     Creation date: ${user.createdAt}`;
-    createChannel(guild, user, topic);
+    await createChannel(guild, user, topic);
   }
   // remvove user reaction
   const reactionChannel = await guild.channels.cache.get(config.checkin.reaction.channel);

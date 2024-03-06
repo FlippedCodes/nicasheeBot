@@ -22,6 +22,8 @@ function editedMessage(sentMessage, interaction) {
 
 // posts ping message and edits it afterwards
 async function checkPing(interaction) {
+  await interaction.deferReply();
+
   const sentReply = await kickoff(interaction);
   interaction.editReply({ embeds: [editedMessage(sentReply, interaction)] });
 }

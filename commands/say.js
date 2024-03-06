@@ -1,4 +1,6 @@
 module.exports.run = async (interaction) => {
+  await interaction.deferReply({ ephemeral: true });
+
   // only guild command
   if (!await interaction.inGuild()) return messageFail(interaction, 'This command is for servers only.');
   // check if user is owner

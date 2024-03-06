@@ -3,6 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 const fs = require('fs');
 
 module.exports.run = async (interaction) => {
+  await interaction.deferReply({ ephemeral: true });
   fs.readFile(config.aboutText, 'utf8', (err, content) => {
     if (err) {
       console.log(err);

@@ -14,7 +14,8 @@ async function createChannel(guild, user, topic) {
   // needs to be delayed, because API limit causes permissions to be set in reverse order.
   setTimeout(async () => {
     await channel.permissionOverwrites.edit(user.id, { ViewChannel: true }).catch(ERR);
-    await channel.send(Handlebars.compile(config.checkin.messages.checkinStart).data({ userID: user.id })).catch(ERR);
+    const checkinMessage = Handlebars.compile(config.checkin.messages.checkinStart);
+    await channel.send(checkinMessage({ userID: user.id })).catch(ERR);
   }, 3 * 1000);
 }
 

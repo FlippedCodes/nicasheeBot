@@ -12,7 +12,8 @@ module.exports.run = async (interaction) => {
 
   // post welcome message
   const welcomeChannel = member.guild.channels.cache.get(config.checkin.welcomeChannel);
-  welcomeChannel.send(Handlebars.compile(config.checkin.messages.serverWelcome).data({ userID }));
+  const welcomeMessage = Handlebars.compile(config.checkin.messages.serverWelcome);
+  welcomeChannel.send(welcomeMessage({ userID }));
   await client.functions.get('ENGINE_checkin_transcriptChannel').run(checkinChannel);
   // delete channel
   await checkinChannel.delete();

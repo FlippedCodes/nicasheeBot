@@ -1,0 +1,35 @@
+{
+    "name": "SyferBot",
+    "guildId": "1213795385156575252",
+    "teamRole": "1213795386775576619",
+    "ownerRole": "1213795386775576624",
+    "setup": {
+        "logStatusChannel": "1213795391573594136",
+        "setupFunctions": [
+            "SETUP_DBSync",
+            "SETUP_initCommands",
+            "SETUP_offlineStat",
+            "SETUP_status"
+        ]
+    },
+    "checkin": {
+        "reaction": {
+            "channel": "1215228431621558302",
+            "message": "1215238497858752563",
+            "emoji": "🦨"
+        },
+        "categoryID": "1213795389594140764",
+        "welcomeChannel": "1213809989647339551",
+        "archiveChannel": "1213795391573594136",
+        "ignoreChannels": ["1215228431621558302"],
+        "checkinRoles": ["1213795385156575258"],
+        "messages": {
+
+        }
+    },
+    "DoBchecking": {
+        "dateFormats": ["YYYY/MM/DD", "DD/MM/YYYY"],
+        "logChannelID": "1213795391573594136"
+    },
+    "aboutText": "./readme.md"
+}

@@ -1,14 +1,4 @@
-const welcomeMessage = (userID) => `
-Haiii <@!${userID}>! Welcome to Devoravore. <:nicshahappy:921955441066508350>
-Before we let you in I'm going to ask you some questions^^!
-
-1. Where did you get your invite?
-2. Are you interested in the vore and the furry/scalie communities?
-3. What is your Date of Birth? (Make sure your DoB is written in the DD/MM/YYYY format.)
-4. Have you read, and do you agree to, all of the <#730609289504227400>?
-
-When you've answered these questions please ping the \`@Moderation\` role **once** and a staff member will be with you shortly to complete your verification.
-`;
+const Handlebars = require('handlebars');
 
 // calculate user creation
 function calcUserAge(user) {
@@ -24,7 +14,7 @@ async function createChannel(guild, user, topic) {
   // needs to be delayed, because API limit causes permissions to be set in reverse order.
   setTimeout(async () => {
     await channel.permissionOverwrites.edit(user.id, { ViewChannel: true }).catch(ERR);
-    await channel.send(welcomeMessage(user.id)).catch(ERR);
+    await channel.send(Handlebars.compile(config.checkin.messages.checkinStart).data({ userID: user.id })).catch(ERR);
   }, 3 * 1000);
 }
 

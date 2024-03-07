@@ -24,7 +24,8 @@
         "ignoreChannels": ["1215228431621558302"],
         "checkinRoles": ["1213795385156575258"],
         "messages": {
-
+            "checkinStart": "Haiii <@!{{userID}}>! Welcome to Deviants' Den. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite?\n2. Are you interested in the vore and the furry/scalie communities?\n3. What is your Date of Birth? (Make sure your DoB is written in the DD/MM/YYYY format.)\n4. Have you read, and do you agree to, all of the <#1213795390047002663>?\n\nWhen you've answered these questions please ping the \\`@Moderation\\` role **once** and a staff member will be with you shortly to complete your verification.",
+            "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nPlease have a read of <#1213795390244003851>!\nWe can’t wait to have fun with you here!"
         }
     },
     "DoBchecking": {

@@ -10,7 +10,8 @@ jobs:
 
     env:
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+      DISCORD_BOT_TOKEN_NB: ${{ secrets.DISCORD_BOT_TOKEN_NB }}
+      DISCORD_BOT_TOKEN_SB: ${{ secrets.DISCORD_BOT_TOKEN_SB }}
 
     steps:
       - uses: actions/checkout@v2

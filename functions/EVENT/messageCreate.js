@@ -8,7 +8,8 @@ module.exports.run = async (message) => {
   // const staff = message.member.roles.cache.has(config.teamRole);
 
   // non command function: checkin complete questioning Reaction adding
-  client.functions.get('ENGINE_checkin_postReaction').run(message);
+  if (message.mentions.roles.has(config.teamRole)
+  && message.channel.parentId === config.checkin.categoryID) return client.functions.get('ENGINE_checkin_postReaction').run(message);
 };
 
 module.exports.data = {

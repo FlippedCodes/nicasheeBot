@@ -15,6 +15,7 @@ const actionsRow = new ActionRowBuilder()
   ]);
 
 module.exports.run = async (interaction) => {
+  if (!interaction.member.roles.cache.has(config.teamRole)) return messageFail(interaction, 'Please wait for a Staffmember to verify you.\nYou can\'t use the buttons.');
   const modal = new ModalBuilder()
     .setCustomId('nsfw_COMPONENT_modal_dobAdd')
     .setTitle('Add DoB');

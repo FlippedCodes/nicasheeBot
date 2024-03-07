@@ -1,13 +1,13 @@
 const welcomeMessage = (userID) => `
 Haiii <@!${userID}>! Welcome to Devoravore. <:nicshahappy:921955441066508350>
-Before we let you in I’m going to ask you some questions^^!
+Before we let you in I'm going to ask you some questions^^!
 
 1. Where did you get your invite?
 2. Are you interested in the vore and the furry/scalie communities?
 3. What is your Date of Birth? (Make sure your DoB is written in the DD/MM/YYYY format.)
 4. Have you read, and do you agree to, all of the <#730609289504227400>?
 
-When you’ve answered these questions please ping the \`@Moderation\` role **once** and a staff member will be with you shortly to complete your verification.
+When you've answered these questions please ping the \`@Moderation\` role **once** and a staff member will be with you shortly to complete your verification.
 `;
 
 // calculate user creation
@@ -27,7 +27,6 @@ async function createChannel(guild, user, topic) {
     await channel.send(welcomeMessage(user.id)).catch(ERR);
   }, 3 * 1000);
 }
-
 
 module.exports.run = async (reaction) => {
   if (DEBUG) return;

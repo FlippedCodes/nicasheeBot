@@ -18,7 +18,7 @@ const intents = new IntentsBitField([
 global.client = new Client({ disableEveryone: true, intents });
 
 // init config
-global.config = require('./config.json');
+global.config = require(process.env.config);
 global.config.package = require('./package.json');
 
 global.DEBUG = process.env.NODE_ENV === 'development';

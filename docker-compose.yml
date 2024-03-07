@@ -10,7 +10,7 @@ services:
       DBhost: gurglebot-db_gb-1
       DBusername: gurglebot
       DBpassword: ${DB_PASSWORD}
-      config: config_nb.json
+      config: ./config_nb.json
 
   bot_sb:
     build:
@@ -22,7 +22,7 @@ services:
       DBhost: gurglebot-db_gb-1
       DBusername: gurglebot
       DBpassword: ${DB_PASSWORD}
-      config: config_sb.json
+      config: ./config_sb.json
 
 networks:
   default:

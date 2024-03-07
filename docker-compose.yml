@@ -5,11 +5,24 @@ services:
       context: ./
     restart: always
     environment:
-      DCtoken: ${DISCORD_BOT_TOKEN}
+      DCtoken: ${DISCORD_BOT_TOKEN_NB}
       DBdatabase: gurglebot
       DBhost: gurglebot-db_gb-1
       DBusername: gurglebot
       DBpassword: ${DB_PASSWORD}
+      config: config_nb.json
+
+  bot_sb:
+    build:
+      context: ./
+    restart: always
+    environment:
+      DCtoken: ${DISCORD_BOT_TOKEN_SB}
+      DBdatabase: gurglebot
+      DBhost: gurglebot-db_gb-1
+      DBusername: gurglebot
+      DBpassword: ${DB_PASSWORD}
+      config: config_sb.json
 
 networks:
   default:

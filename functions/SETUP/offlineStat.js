@@ -10,11 +10,11 @@ module.exports.run = async () => {
   if (DEBUG) return;
   console.log(`[${module.exports.data.name}] Posting bot status message!`);
   const embed = new EmbedBuilder()
-    .setTitle('Nicashee - Bot back online!')
+    .setTitle(`${config.name} - Bot back online!`)
     .setColor('Green')
     .setFooter({ text: client.user.tag, icon_url: client.user.displayAvatarURL })
     .setTimestamp();
-  const offlineTime = await OfflineStat.findOne({ where: { ID: 1 } }).catch(ERR);
+  const offlineTime = await OfflineStat.findOne({ where: { ID: client.user.id } }).catch(ERR);
   if (offlineTime) {
     const timeStamp = moment(offlineTime.updatedAt);
     embed.addFields([

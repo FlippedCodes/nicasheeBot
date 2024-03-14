@@ -37,5 +37,5 @@ module.exports.data = new CmdBuilder()
     .addUserOption((option) => option.setName('user').setDescription('Provide a user to to add.').setRequired(true)))
   .addSubcommand((subcommand) => subcommand
     .setName('calc')
-    .setDescription('Calcupate the age from a DoB')
+    .setDescription('Calculate the age from a DoB')
     .addStringOption((option) => option.setName('date').setDescription('Provide the users DoB. Format: YYYY/MM/DD').setRequired(true)));

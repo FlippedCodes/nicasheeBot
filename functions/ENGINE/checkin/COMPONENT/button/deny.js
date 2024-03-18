@@ -10,15 +10,15 @@ module.exports.run = async (interaction) => {
   await interaction.deferUpdate();
 
   const checkinChannel = interaction.channel;
-
-  await client.functions.get('ENGINE_checkin_transcriptChannel').run(checkinChannel);
-
   const userID = checkinChannel.name;
   const user = await interaction.guild.members.fetch(userID).catch((e) => null);
   if (user) {
     user.send({ embeds: [embed] }).catch((e) => null);
     await user.kick('Checkin Denied');
-    // channel deletion is handled in member remove event
+    // channel deletion is handled in member remove event. But if user has already left, channel needs to be deleted
+  } else {
+    await client.functions.get('ENGINE_checkin_transcriptChannel').run(checkinChannel);
+    checkinChannel.delete();
   }
 };
 

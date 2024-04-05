@@ -1,0 +1,36 @@
+{
+    "name": "Dungeon Guardian",
+    "guildId": "1123273359707353238",
+    "teamRole": "1167414979675308032",
+    "ownerRole": "1225474228879622264",
+    "setup": {
+        "logStatusChannel": "1225860146354327704",
+        "setupFunctions": [
+            "SETUP_DBSync",
+            "SETUP_initCommands",
+            "SETUP_offlineStat",
+            "SETUP_status"
+        ]
+    },
+    "checkin": {
+        "reaction": {
+            "channel": "1225861857923825725",
+            "message": "1225903280656486541",
+            "emoji": "🎲"
+        },
+        "categoryID": "1225861589689700383",
+        "welcomeChannel": "1123273360936276042",
+        "archiveChannel": "1225860146354327704",
+        "ignoreChannels": ["1225861857923825725"],
+        "checkinRoles": ["1225860960724717599"],
+        "messages": {
+            "checkinStart": "Hello, <@!{{userID}}>! Welcome to Choco's tavern. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite?\n2. Are you interested in the vore and the Dungeons and Dragons communities?\n3. What is your Date of Birth? (Make sure your DoB is written in the YYYY-MM-DD format.)\n4. Have you read, and do you agree to, all of the <#1225860752297164902>?\n\nWhen you've answered these questions please ping the \\`@Moderator\\` role **once** and a staff member will be with you shortly to complete your verification.",
+            "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nPlease have a read of <#1225860752297164902>!\nWe can't wait to have fun with you here!"
+        }
+    },
+    "DoBchecking": {
+        "dateFormats": ["YYYY-MM-DD", "MM/DD/YYYY"],
+        "logChannelID": "1225860146354327704"
+    },
+    "aboutText": "./readme.md"
+}

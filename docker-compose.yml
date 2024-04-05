@@ -24,6 +24,18 @@ services:
       DBpassword: ${DB_PASSWORD}
       config: ./config/syfer.json
 
+  bot_dgb:
+    build:
+      context: ./
+    restart: always
+    environment:
+      DCtoken: ${DISCORD_BOT_TOKEN_DGB}
+      DBdatabase: gurglebot
+      DBhost: gurglebot-db_gb-1
+      DBusername: gurglebot
+      DBpassword: ${DB_PASSWORD}
+      config: ./config/dungen_guardian.json
+
 networks:
   default:
     external:

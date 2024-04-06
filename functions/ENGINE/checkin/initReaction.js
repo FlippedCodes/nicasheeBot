@@ -23,7 +23,8 @@ module.exports.run = async (reaction) => {
   if (DEBUG) return;
   // check emoji and channel
   const configReaction = config.checkin.reaction;
-  if (reaction.member.roles.length !== 0) return;
+  // DEPRECATED: channel is not visible to checked in users.
+  // if (reaction.member.roles.length !== 0) return;
   if (reaction.channel_id !== configReaction.channel) return;
   if (reaction.message_id !== configReaction.message) return;
   if (reaction.emoji.name !== configReaction.emoji) return;

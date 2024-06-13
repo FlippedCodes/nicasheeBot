@@ -56,7 +56,7 @@ module.exports.run = async (message) => {
   // check if team fore was pinged and if channel is a check-in channel
   const embed = new EmbedBuilder()
     .setColor('Green')
-    .setDescription('Please wait for a teammember to review your answers.')
+    .setDescription('Please wait for a team member to review your answers.')
     .setFooter({ text: 'You can ignore the buttons below.' });
 
   const userID = message.channel.name;

@@ -1,5 +1,5 @@
 # get node version 16
-FROM node:16.12-buster-slim
+FROM node:20-buster-slim
 
 # Create app directory
 WORKDIR /usr/src/app

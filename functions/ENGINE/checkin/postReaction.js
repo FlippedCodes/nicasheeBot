@@ -6,13 +6,14 @@ const moment = require('moment');
 
 const userDoB = require('../../../database/models/UserDoB');
 
-const buttonsSetup = ({ checked, DoB }) => new ActionRowBuilder()
+const buttonsSetup = ({ checked, checkedText }) => new ActionRowBuilder()
   .addComponents([
     new ButtonBuilder()
       .setCustomId('checkin_COMPONENT_button_allow')
       .setEmoji('👌')
-      .setLabel(!(checked && DoB) ? 'Verfiy first' : 'Allow')
-      .setDisabled(!(checked && DoB))
+      .setLabel(checkedText !== 'Already checked ID' ? 'Verfiy first' : 'Allow')
+      .setDisabled(checkedText !== 'Already checked ID')
+      // Not old enough
       .setStyle(ButtonStyle.Primary),
     new ButtonBuilder()
       .setCustomId('checkin_COMPONENT_button_deny')
@@ -22,14 +23,9 @@ const buttonsSetup = ({ checked, DoB }) => new ActionRowBuilder()
     new ButtonBuilder()
       .setCustomId('checkin_COMPONENT_button_dob_checked')
       .setEmoji('🔞')
-      .setLabel(checked && DoB ? 'Already checked ID' : 'ID checked')
+      // eslint-disable-next-line no-nested-ternary
+      .setLabel(checkedText)
       .setDisabled(checked)
-      .setStyle(ButtonStyle.Secondary),
-    new ButtonBuilder()
-      .setCustomId('checkin_COMPONENT_button_dob_add')
-      .setEmoji('➕')
-      .setLabel(DoB || 'Add DoB')
-      .setDisabled(!!DoB)
       .setStyle(ButtonStyle.Secondary),
   ]);
 
@@ -50,14 +46,14 @@ async function searchUser(ID) {
   return result;
 }
 
-async function addUser(ID, DoB, allow, teammemberID) {
+async function addUser(ID, allow, teammemberID, serverID) {
   if (await userDoB.findOne({ where: { ID } }).catch(ERR)) return false;
-  await userDoB.findOrCreate({ where: { ID }, defaults: { DoB, allow, teammemberID } }).catch(ERR);
+  await userDoB.findOrCreate({ where: { ID }, defaults: { allow, teammemberID, serverID } }).catch(ERR);
   return true;
 }
 
 module.exports.run = async (message) => {
-  // check if team fore was pinged and if channel is a checkin channel
+  // check if team fore was pinged and if channel is a check-in channel
   const embed = new EmbedBuilder()
     .setColor('Green')
     .setDescription('Please wait for a teammember to review your answers.')
@@ -66,21 +62,33 @@ module.exports.run = async (message) => {
   const userID = message.channel.name;
   const userDoB = await searchUser(userID);
 
-  let DoB = false;
-  if (!userDoB) {
-    const date = await getDate(message.channel);
-    if (date && date.isValid()) {
-      DoB = date.format(config.DoBchecking.dateFormats[0]);
-      // add entry
-      await addUser(userID, DoB, false, client.user.id);
-    }
-  } else {
-    DoB = moment(userDoB.DoB).format(config.DoBchecking.dateFormats[0]);
-  }
-  const checked = userDoB ? userDoB.allow : false;
+  let checked = false;
+  let checkedText = 'ID checked';
 
-  // dont activate 'checked' button, if DoB has not been checked
-  const buttonsAdd = buttonsSetup({ checked: DoB ? checked : true, DoB });
+  const date = await getDate(message.channel);
+  if (date && date.isValid()) {
+    const age = moment().diff(date, 'years');
+    if (age <= 18) {
+      message.channel.send('Hello! You don\'t seem to be old enough for our server.\nPlease come back, when you are old enough.');
+      checked = true;
+      checkedText = 'Not old enough';
+    }
+  }
+
+  if (!userDoB) {
+    const allow = false;
+    await addUser(userID, allow, client.user.id, message.guild.id);
+  } else if (userDoB.allow) {
+    checked = true;
+    checkedText = 'Already checked ID';
+  }
+
+  // ping team, if not pinged already and only if user uses button/command
+  const messages = await message.channel.messages.fetch();
+  const mentions = messages.filter((message) => message.mentions.roles.has(config.teamRole));
+  if (mentions.size === 0 && message.member.id === userID) message.channel.send(`<@&${config.teamRole}>`);
+
+  const buttonsAdd = buttonsSetup({ checked, checkedText });
   message.channel.send({ embeds: [embed], components: [buttonsAdd] });
 };
 

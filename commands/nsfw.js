@@ -27,11 +27,6 @@ module.exports.data = new CmdBuilder()
     .addUserOption((option) => option.setName('user').setDescription('Provide a user to to edit.').setRequired(true))
     .addBooleanOption((option) => option.setName('allow').setDescription('Set the allowance.').setRequired(true)))
   .addSubcommand((subcommand) => subcommand
-    .setName('change')
-    .setDescription('Change the DoB of an entry.')
-    .addUserOption((option) => option.setName('user').setDescription('Provide a user to to add.').setRequired(true))
-    .addStringOption((option) => option.setName('date').setDescription('Provide the users DoB. Format: YYYY/MM/DD').setRequired(true)))
-  .addSubcommand((subcommand) => subcommand
     .setName('search')
     .setDescription('Search an entry.')
     .addUserOption((option) => option.setName('user').setDescription('Provide a user to to add.').setRequired(true)))

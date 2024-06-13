@@ -1,6 +1,6 @@
 const userDoB = require('../../database/models/UserDoB');
 
-function sendMessage(EmbedBuilder, interaction, userTag, userID, age, DoB, allow, teammemberTag) {
+function sendMessage(EmbedBuilder, interaction, userTag, userID, allow, teammemberTag, serverName) {
   // needs to be local as settings overlap from different embed-requests
   const embed = new EmbedBuilder();
 
@@ -12,10 +12,9 @@ function sendMessage(EmbedBuilder, interaction, userTag, userID, age, DoB, allow
     .setDescription(`${userTag} got added to the DB!`)
     .addFields([
       { name: 'ID', value: userID, inline: true },
-      { name: 'Age', value: String(age), inline: true },
-      { name: 'DoB', value: DoB, inline: true },
       { name: 'Allow', value: prettyCheck(allow), inline: true },
       { name: 'Created by', value: teammemberTag, inline: true },
+      { name: 'Created on', value: serverName, inline: true },
     ]);
 
   const content = { embeds: [embed] };
@@ -52,15 +51,11 @@ module.exports.run = async (interaction, moment, EmbedBuilder) => {
   // search entry
   const DBentry = await searchUser(userID);
   if (!DBentry) return postFail(interaction, user);
-  // get DoB
-  const DoB = DBentry.DoB;
-  // get age
-  const age = moment().diff(DoB, 'years');
-  const formatDoB = moment(DoB).format(config.DoBchecking.dateFormats[0]);
-  // get teamember tag
+  // get teamember and servername tag
   const teammemberTag = client.users.cache.find(({ id }) => id === DBentry.teammemberID).tag;
+  const serverName = client.guilds.cache.find(({ id }) => id === DBentry.serverID).name;
   // send log and user confirmation
-  sendMessage(EmbedBuilder, interaction, user.tag, userID, age, formatDoB, DBentry.allow, teammemberTag);
+  sendMessage(EmbedBuilder, interaction, user.tag, userID, DBentry.allow, teammemberTag, serverName);
 };
 
 module.exports.data = { subcommand: true };

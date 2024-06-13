@@ -20,18 +20,15 @@ async function createChannel(guild, user, topic) {
 }
 
 module.exports.run = async (reaction) => {
-  if (DEBUG) return;
+  // if (DEBUG) return;
   // check emoji and channel
   const configReaction = config.checkin.reaction;
-  // DEPRECATED: channel is not visible to checked in users.
-  // if (reaction.member.roles.length !== 0) return;
-  if (reaction.channel_id !== configReaction.channel) return;
   if (reaction.message_id !== configReaction.message) return;
   if (reaction.emoji.name !== configReaction.emoji) return;
   // get guild and user
   const guild = await client.guilds.cache.find((guild) => guild.id === reaction.guild_id);
   const user = await client.users.fetch(reaction.member.user.id, false);
-  // check if user already has checkin channel
+  // check if user already has check-in channel
   const checkinChannel = await guild.channels.cache.find((channel) => channel.name === user.id);
   if (!checkinChannel) {
     const dayDiff = calcUserAge(user);
@@ -44,7 +41,7 @@ module.exports.run = async (reaction) => {
     Creation date: ${user.createdAt}`;
     await createChannel(guild, user, topic);
   }
-  // remvove user reaction
+  // remove user reaction
   const reactionChannel = await guild.channels.cache.get(config.checkin.reaction.channel);
   const reactionMessage = await reactionChannel.messages.fetch(config.checkin.reaction.message);
   const initalReaction = await reactionMessage.reactions.cache.get(config.checkin.reaction.emoji);

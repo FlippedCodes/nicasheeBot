@@ -14,7 +14,7 @@ async function searchUser(ID) {
   return result;
 }
 
-function sendMessage(EmbedBuilder, channel, userTag, userID, age, DoB, allow, teammemberTag, updated, created) {
+function sendMessage(EmbedBuilder, channel, userTag, userID, allow, teammemberTag, serverName, updated, created) {
   let color = 16741376;
   if (allow) color = 4296754;
 
@@ -24,9 +24,9 @@ function sendMessage(EmbedBuilder, channel, userTag, userID, age, DoB, allow, te
     .addFields([
       { name: 'ID', value: userID, inline: true },
       { name: 'Age', value: String(age), inline: true },
-      { name: 'DoB', value: DoB, inline: true },
       { name: 'Allow', value: prettyCheck(allow), inline: true },
       { name: 'Created by', value: teammemberTag, inline: true },
+      { name: 'Created on', value: serverName, inline: true },
       { name: 'Created at', value: created, inline: false },
       { name: 'Updated at', value: updated, inline: false },
     ]);
@@ -40,16 +40,12 @@ module.exports.run = async (message, EmbedBuilder, userID) => {
   const DBentry = await searchUser(userID);
   // report to user if entry added
   if (!DBentry) return messageFail(message, `No data found for the ID \`${userID}\`!`);
-  // get DoB
-  const DoB = DBentry.DoB;
-  // get age
-  const age = moment().diff(DoB, 'years');
   // get user tags and format dates
   const [userTag, teammemberTag] = [userID, DBentry.teammemberID].map((uID) => client.users.cache.find(({ id }) => id === uID).tag);
+  const serverName = client.guilds.cache.find(({ id }) => id === DBentry.serverID).name;
   const [updatedAt, createdAt] = [DBentry.updatedAt, DBentry.createdAt].map((date) => moment(date).format('ddd, MMM Do YYYY, h:mm a'));
-  const formatDoB = moment(DoB).format('YYYY-MM-DD');
   // send it
-  sendMessage(EmbedBuilder, message.channel, userTag, userID, age, formatDoB, DBentry.allow, teammemberTag, updatedAt, createdAt);
+  sendMessage(EmbedBuilder, message.channel, userTag, userID, DBentry.allow, teammemberTag, serverName, updatedAt, createdAt);
 };
 
 module.exports.data = {

@@ -5,14 +5,11 @@ module.exports = sequelize.define('UserDoB', {
     type: Sequelize.STRING(30),
     primaryKey: true,
   },
-  DoB: {
-    type: Sequelize.DATE,
-    allowNull: false,
-  },
   allow: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
     defaultValue: false,
   },
   teammemberID: Sequelize.STRING(30),
+  serverID: Sequelize.STRING(30),
 });

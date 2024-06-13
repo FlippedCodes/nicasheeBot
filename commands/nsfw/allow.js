@@ -52,7 +52,8 @@ module.exports.run = async (interaction, moment, EmbedBuilder) => {
   const DBentry = await searchUser(userID);
   if (!DBentry) return postFail(interaction, user);
   // get teamember and servername tag
-  const teammemberTag = client.users.cache.find(({ id }) => id === DBentry.teammemberID).tag;
+  const teammember = client.users.cache.find(({ id }) => id === DBentry.teammemberID);
+  const teammemberTag = teammember ? teammember.tag : 'Unknown';
   const server = client.guilds.cache.find(({ id }) => id === DBentry.serverID);
   const serverName = server ? server.name : 'Unknown';
   // send log and user confirmation

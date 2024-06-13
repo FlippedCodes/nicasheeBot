@@ -89,7 +89,9 @@ module.exports.run = async (message) => {
   if (mentions.size === 0 && message.member.id === userID) message.channel.send(`<@&${config.teamRole}>`);
 
   const buttonsAdd = buttonsSetup({ checked, checkedText });
-  message.channel.send({ embeds: [embed], components: [buttonsAdd] });
+  // check, if it was deferred
+  if (message.deferred) return message.editReply({ embeds: [embed], components: [buttonsAdd] });
+  message.reply({ embeds: [embed], components: [buttonsAdd] });
 };
 
 module.exports.data = {

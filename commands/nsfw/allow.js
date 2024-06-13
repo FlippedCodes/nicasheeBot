@@ -54,7 +54,7 @@ module.exports.run = async (interaction, moment, EmbedBuilder) => {
   // get teamember and servername tag
   const teammember = client.users.fetch(DBentry.teammemberID);
   const teammemberTag = teammember ? teammember.tag : 'Unknown';
-  const server = client.guilds.fetch(DBentry.serverID);
+  const server = client.guilds.cache.find(({ id }) => id === DBentry.serverID);
   const serverName = server ? server.name : 'Unknown';
   // send log and user confirmation
   sendMessage(EmbedBuilder, interaction, user.tag, userID, DBentry.allow, teammemberTag, serverName);

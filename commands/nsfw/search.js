@@ -37,7 +37,8 @@ module.exports.run = async (interaction, moment, EmbedBuilder) => {
   // get user tags and format dates
   const teammember = await client.users.fetch(DBentry.teammemberID);
   const teammemberTag = teammember ? teammember.tag : 'none';
-  const serverName = DBentry.serverID ? client.guilds.cache.find(({ id }) => id === DBentry.serverID).name : 'unknown';
+  const server = client.guilds.cache.find(({ id }) => id === DBentry.serverID);
+  const serverName = server ? server.name : 'Unknown';
   const [updatedAt, createdAt] = [DBentry.updatedAt, DBentry.createdAt].map((date) => moment(date).format('ddd, MMM Do YYYY, h:mm a'));
   // send it
   sendMessage(EmbedBuilder, interaction, user.tag, userID, DBentry.allow, teammemberTag, serverName, updatedAt, createdAt);

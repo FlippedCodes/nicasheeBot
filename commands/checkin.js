@@ -6,7 +6,6 @@ module.exports.run = async (interaction) => {
 
   if (interaction.channel.parentId !== config.checkin.categoryID) return messageFail(interaction, 'This channel is not a checkin channel.');
   await client.functions.get('ENGINE_checkin_postReaction').run(interaction);
-  messageSuccess(interaction, 'Checkin posted.');
 };
 
 module.exports.data = new CmdBuilder()

@@ -52,7 +52,7 @@ module.exports.run = async (interaction, moment, EmbedBuilder) => {
   const DBentry = await searchUser(userID);
   if (!DBentry) return postFail(interaction, user);
   // get teamember and servername tag
-  const teammember = client.users.fetch(DBentry.teammemberID);
+  const teammember = await client.users.fetch(DBentry.teammemberID);
   const teammemberTag = teammember ? teammember.tag : 'Unknown';
   const server = client.guilds.cache.find(({ id }) => id === DBentry.serverID);
   const serverName = server ? server.name : 'Unknown';

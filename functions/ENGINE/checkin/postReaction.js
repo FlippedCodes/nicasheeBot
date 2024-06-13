@@ -79,6 +79,7 @@ module.exports.run = async (message) => {
     const allow = false;
     await addUser(userID, allow, client.user.id, message.guild.id);
   } else if (userDoB.allow) {
+    // Known issue: "Not old enough" is being overwritten. Logic wise it is not easily fixable.
     checked = true;
     checkedText = 'Already checked ID';
   }

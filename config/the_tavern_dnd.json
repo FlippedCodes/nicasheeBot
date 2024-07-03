@@ -1,0 +1,36 @@
+{
+    "name": "Bartender bot",
+    "guildId": "1254145587155308715",
+    "teamRole": "1257495744001081367",
+    "ownerRole": "1225474228879622264",
+    "setup": {
+        "logStatusChannel": "1225860146354327704",
+        "setupFunctions": [
+            "SETUP_DBSync",
+            "SETUP_initCommands",
+            "SETUP_offlineStat",
+            "SETUP_status"
+        ]
+    },
+    "checkin": {
+        "reaction": {
+            "channel": "1257780437045084222",
+            "message": "1257788070095487078",
+            "emoji": "🎲"
+        },
+        "categoryID": "1225861589689700383",
+        "welcomeChannel": "1254145587809353812",
+        "archiveChannel": "1257793281941835837",
+        "ignoreChannels": ["1225861857923825725"],
+        "checkinRoles": ["1257793798986141707"],
+        "messages": {
+            "checkinStart": "Hello, <@!{{userID}}>! Welcome to the tavern. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite?\n2. Are you interested in the vore and the Dungeons and Dragons communities?\n3. What is your Date of Birth? (Make sure your DoB is written in the YYYY-MM-DD format.)\n4. Have you read, and do you agree to, all of the <#1123273420822552708>?\n\nWhen you've answered these questions please ping the \\`@Moderator\\` role **once** and a staff member will be with you shortly to complete your verification.",
+            "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nFeel free to go over to <#1174694289213767710> and get yourself some roles depending on your interests!\nWe can't wait to have fun with you here!"
+        }
+    },
+    "DoBchecking": {
+        "dateFormats": ["YYYY-MM-DD", "MM/DD/YYYY"],
+        "logChannelID": "1225860146354327704"
+    },
+    "aboutText": "./readme.md"
+}

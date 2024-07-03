@@ -68,7 +68,7 @@ module.exports.run = async (message) => {
   const date = await getDate(message.channel);
   if (date && date.isValid()) {
     const age = moment().diff(date, 'years');
-    if (age < 18) {
+    if (age <= 18) {
       message.channel.send('Hello! You don\'t seem to be old enough for our server.\nPlease come back, when you are old enough.');
       checked = true;
       checkedText = 'Not old enough';

@@ -38,7 +38,7 @@ async function getDate(channel) {
   if (!found.size) return;
   const coreMessage = found.entries().next().value[1].content;
   const rawDate = coreMessage.match(dateRegEx)[0];
-  return moment(rawDate, config.DoBchecking.dateFormats, true);
+  return moment(rawDate, config.DoBchecking.dateFormats, false);
 }
 
 async function searchUser(ID) {

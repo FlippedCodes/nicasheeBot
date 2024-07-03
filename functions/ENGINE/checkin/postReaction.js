@@ -33,7 +33,7 @@ async function getDate(channel) {
   // get all messages
   const messages = await channel.messages.fetch();
   // match date
-  const dateRegEx = /\d{2}[/]\d{2}[/]\d{4}/gm;
+  const dateRegEx = /\d{1,2}[/]\d{1,2}[/]\d{4}/gm;
   const found = await messages.filter((msg) => msg.content.match(dateRegEx) && msg.author.id === channel.name);
   if (!found.size) return;
   const coreMessage = found.entries().next().value[1].content;

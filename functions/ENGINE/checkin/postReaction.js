@@ -66,7 +66,6 @@ module.exports.run = async (message) => {
   let checkedText = 'ID checked';
 
   const date = await getDate(message.channel);
-  console.log(date.format('YYYY-MM-DD'));
   if (date && date.isValid()) {
     const age = moment().diff(date, 'years');
     if (age <= 17) {

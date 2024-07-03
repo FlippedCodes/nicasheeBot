@@ -29,7 +29,7 @@
         }
     },
     "DoBchecking": {
-        "dateFormats": ["YYYY/MM/DD", "DD/MM/YYYY"],
+        "dateFormats": ["DD/MM/YYYY", "YYYY/MM/DD"],
         "logChannelID": "1213795391573594136"
     },
     "aboutText": "./readme.md"

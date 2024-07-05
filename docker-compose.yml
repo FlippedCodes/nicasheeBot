@@ -36,6 +36,18 @@ services:
       DBpassword: ${DB_PASSWORD}
       config: ./config/dungen_guardian.json
 
+  bot_ttd:
+    build:
+      context: ./
+    restart: always
+    environment:
+      DCtoken: ${DISCORD_BOT_TOKEN_TTD}
+      DBdatabase: gurglebot
+      DBhost: gurglebot-db_gb-1
+      DBusername: gurglebot
+      DBpassword: ${DB_PASSWORD}
+      config: ./config/the_tavern_dnd.json
+
 networks:
   default:
     external:

@@ -28,6 +28,16 @@
             "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nPlease have a read of <#730609289504227403>!\nWe can't wait to have fun with you here!"
         }
     },
+    "reducedRP": {
+        "pointsDeletionTime": 10E3,
+        "warnThresholds": [450, 500, 550],
+        "leaderboardChannel": "1345864132032991263",
+        "warnMessageCooldown": 30,
+        "warnMessageDeletionTime": 5,
+        "channels": [
+            "730609290397876283"
+        ]
+    },
     "DoBchecking": {
         "dateFormats": ["DD/MM/YYYY", "D/M/YYYY", "YYYY/MM/DD"],
         "logChannelID": "892536217458057246"

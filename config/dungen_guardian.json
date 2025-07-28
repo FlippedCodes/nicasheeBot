@@ -24,7 +24,7 @@
         "ignoreChannels": ["1225861857923825725"],
         "checkinRoles": ["1225860960724717599"],
         "messages": {
-            "checkinStart": "Hello, <@!{{userID}}>! Welcome to Choco's tavern. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite?\n2. Are you interested in the vore and the Dungeons and Dragons communities?\n3. What is your Date of Birth? (Make sure your DoB is written in the YYYY-MM-DD format.)\n4. Have you read, and do you agree to, all of the <#1123273420822552708>?\n\nWhen you've answered these questions please ping the \\`@Moderator\\` role **once** and a staff member will be with you shortly to complete your verification.",
+            "checkinStart": "Hello, <@!{{userID}}>! Welcome to Choco's tavern. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite?\n2. Are you interested in the vore and the Dungeons and Dragons communities?\n3. What is your Date of Birth? (Make sure your DoB is written in the YYYY-MM-DD format.)\n4. Have you read, and do you agree to, all of the <#1391041756262305913>?\n5. Do not forget to follow the instructions in the rules mentioning ID.\n\nWhen you've answered these questions please ping the \\`@Moderator\\` role **once** and a staff member will be with you shortly to complete your verification.",
             "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nFeel free to go over to <#1174694289213767710> and get yourself some roles depending on your interests!\nWe can't wait to have fun with you here!"
         }
     },

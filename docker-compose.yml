@@ -48,6 +48,18 @@ services:
       DBpassword: ${DB_PASSWORD}
       config: ./config/the_tavern_dnd.json
 
+  bot_tvr:
+    build:
+      context: ./
+    restart: always
+    environment:
+      DCtoken: ${DISCORD_BOT_TOKEN_TVR}
+      DBdatabase: gurglebot
+      DBhost: gurglebot-db_gb-1
+      DBusername: gurglebot
+      DBpassword: ${DB_PASSWORD}
+      config: ./config/theVoreResort.json
+
 networks:
   default:
     external:

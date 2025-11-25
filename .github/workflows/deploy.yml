@@ -14,6 +14,7 @@ jobs:
       DISCORD_BOT_TOKEN_SB: ${{ secrets.DISCORD_BOT_TOKEN_SB }}
       DISCORD_BOT_TOKEN_DGB: ${{ secrets.DISCORD_BOT_TOKEN_DGB }}
       DISCORD_BOT_TOKEN_TTD: ${{ secrets.DISCORD_BOT_TOKEN_TTD }}
+      DISCORD_BOT_TOKEN_TVR: ${{ secrets.DISCORD_BOT_TOKEN_TVR }}
 
     steps:
       - uses: actions/checkout@v2

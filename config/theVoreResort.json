@@ -1,0 +1,36 @@
+{
+    "name": "MoxBot",
+    "guildId": "1441560658674974733",
+    "teamRole": "1441960570243907610",
+    "ownerRole": "1441560658973036574",
+    "setup": {
+        "logStatusChannel": "1441961849288658964",
+        "setupFunctions": [
+            "SETUP_DBSync",
+            "SETUP_initCommands",
+            "SETUP_offlineStat",
+            "SETUP_status"
+        ]
+    },
+    "checkin": {
+        "reaction": {
+            "channel": "1441962596440739850",
+            "message": "1441963952375595108",
+            "emoji": "🐉"
+        },
+        "categoryID": "1441962469571559574",
+        "welcomeChannel": "1441560659400589493",
+        "archiveChannel": "1441961849288658964",
+        "ignoreChannels": ["1441962596440739850"],
+        "checkinRoles": ["1441560658926899395"],
+        "messages": {
+            "checkinStart": "Haiii <@!{{userID}}>! Welcome to the **[18+] The Vore Resort**. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite and why did you join us?\n2. What is Vore to you?\n3. What is your Date of Birth and Age?\n4. Have you read, and do you agree to, all of the <#1441968236945080351>?\n\nWhen you've answered these questions please ping the \\`@Moderators\\` role **once** and a staff member will be with you shortly to complete your verification.",
+            "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nPlease have a read of <#1441560658973036582>!\nWe can't wait to have fun with you here!"
+        }
+    },
+    "DoBchecking": {
+        "dateFormats": ["DD/MM/YYYY", "YYYY/MM/DD", "YYYY-MM-DD", "YYYY.MM.DD", "DD-MM-YYYY", "DD.MM.YYYY"],
+        "logChannelID": "1441961849288658964"
+    },
+    "aboutText": "./readme.md"
+}

@@ -9,6 +9,7 @@ module.exports.run = async (interaction) => {
   const userID = checkinChannel.name;
   const member = await interaction.guild.members.fetch(userID);
   config.checkin.checkinRoles.forEach((role) => member.roles.add(role));
+  if (config.checkin.hideOpenChannels) await member.roles.remove(config.checkin.hideOpenChannels).catch(ERR);
 
   // post welcome message
   const welcomeChannel = member.guild.channels.cache.get(config.checkin.welcomeChannel);

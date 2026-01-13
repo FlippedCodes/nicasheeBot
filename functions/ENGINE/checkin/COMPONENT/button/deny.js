@@ -5,18 +5,22 @@ const embed = new EmbedBuilder()
   .setDescription('It seems like your check-in got declined or you exceed your stay with not replying back.')
   .setColor('Red');
 
-module.exports.run = async (interaction) => {
-  if (!interaction.member.roles.cache.has(config.teamRole)) return messageFail(interaction, 'Please wait for a Staffmember to verify you.\nYou can\'t use the buttons.');
-  await interaction.deferUpdate();
+module.exports.run = async (interaction, timedOut = false) => {
+  // needed for autoclose function
+  if (!timedOut) {
+    if (!interaction.member.roles.cache.has(config.teamRole)) return messageFail(interaction, 'Please wait for a staff member to verify you.\nYou can\'t use the buttons.');
+    await interaction.deferUpdate();
+  }
 
   const checkinChannel = interaction.channel;
   const userID = checkinChannel.name;
   const user = await interaction.guild.members.fetch(userID).catch((e) => null);
   if (user) {
     user.send({ embeds: [embed] }).catch((e) => null);
-    await user.kick('Checkin Denied');
+    if (!config.checkin.doNotKick) await user.kick('Checkin Denied');
     // channel deletion is handled in member remove event. But if user has already left, channel needs to be deleted
   } else {
+    // deletion on normal user leave is handled in a different event. hence this is a else-statement.
     await client.functions.get('ENGINE_checkin_transcriptChannel').run(checkinChannel);
     checkinChannel.delete();
   }

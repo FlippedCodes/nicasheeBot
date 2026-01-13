@@ -9,12 +9,17 @@ jobs:
     runs-on: stardrive
 
     env:
+      DB_FE_IP: ${{ secrets.DB_FE_IP }}
+      DB_FE_PORT: ${{ secrets.DB_FE_PORT }}
+      DB_FE_PASSWORD: ${{ secrets.DB_FE_PORT }}
+      DB_FE_PASSWORD_ROOT: ${{ secrets.DB_FE_PASSWORD_ROOT }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       DISCORD_BOT_TOKEN_NB: ${{ secrets.DISCORD_BOT_TOKEN_NB }}
       DISCORD_BOT_TOKEN_SB: ${{ secrets.DISCORD_BOT_TOKEN_SB }}
       DISCORD_BOT_TOKEN_DGB: ${{ secrets.DISCORD_BOT_TOKEN_DGB }}
       DISCORD_BOT_TOKEN_TTD: ${{ secrets.DISCORD_BOT_TOKEN_TTD }}
       DISCORD_BOT_TOKEN_TVR: ${{ secrets.DISCORD_BOT_TOKEN_TVR }}
+      DISCORD_BOT_TOKEN_FB: ${{ secrets.DISCORD_BOT_TOKEN_FB }}
 
     steps:
       - uses: actions/checkout@v2

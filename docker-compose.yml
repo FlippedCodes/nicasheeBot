@@ -60,6 +60,34 @@ services:
       DBpassword: ${DB_PASSWORD}
       config: ./config/theVoreResort.json
 
+  bot_fb:
+    build:
+      context: ./
+    restart: always
+    environment:
+      DCtoken: ${DISCORD_BOT_TOKEN_FB}
+      DBdatabase: fe
+      DBhost: db_fe
+      DBusername: fe
+      DBpassword: ${DB_FE_PASSWORD}
+      config: ./config/furbulous.json
+
+  db_fe:
+    image: mariadb:latest
+    restart: always
+    ports:
+      - "${DB_FE_IP}:${DB_FE_PORT}:3306"
+    volumes:
+      - db_fe_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_FE_PASSWORD_ROOT}
+      MYSQL_DATABASE: fe
+      MYSQL_USER: fe
+      MYSQL_PASSWORD: ${DB_FE_PASSWORD}
+
+volume:
+  db_fe_data:
+
 networks:
   default:
     external:

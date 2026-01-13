@@ -1,0 +1,54 @@
+{
+    "name": "DannyTheOrangeOtter",
+    "guildId": "1451883456886865955",
+    "teamRole": "1460025950518513876",
+    "ownerRole": "1458859008139202691",
+    "setup": {
+        "logStatusChannel": "1459949016346398776",
+        "setupFunctions": [
+            "SETUP_DBSync",
+            "SETUP_initCommands",
+            "SETUP_offlineStat",
+            "SETUP_interval_checkinReminder",
+            "SETUP_status"
+        ]
+    },
+    "report": {
+        "channel": "1460403174811766794"
+    },
+    "checkin": {
+        "reaction": {
+            "channel": "1459937443938570240",
+            "message": "1460303663670235146",
+            "emoji": "🐾"
+        },
+        "idTutorial": {
+            "channel": "1459937443938570240",
+            "message": "1460524255027400842",
+            "searchString": "\n**",
+            "titleIndex": 0
+        },
+        "categoryID": "1460029690826981600",
+        "welcomeChannel": "1451883458703003754",
+        "archiveChannel": "1459945826464956646",
+        "ignoreChannels": [],
+        "checkinRoles": ["1460314261099122913"],
+        "doNotKick": true,
+        "messages": {
+            "checkinStart": "**Hello there <@!{{userID}}>!**\n\nWelcome to **Furbulous!** Before we can let you in I'm going to ask you some questions :3\n\n- Are you 18+?\n- How did you find us?\n- Have you read, and do you agree to all of the rules?\n- Please verify as described in <#1459937443938570240>\n\nIf you have answered these questions, please ping the \\`@Bouncer\\` role once and a crew member will be with you shortly to complete your verification!",
+            "serverWelcome": "**<@!{{userID}}>, the door   open, you are now verified :D**\nEnjoy your stay and have fun! For any questions or suggestions, please contact us at #contact-us."
+        },
+        "reminders": {
+            "checkIntervalHours": 1,
+            "reminderIntervalHours": 24,
+            "reminderAmount": 3,
+            "warningTitle": "Reminder",
+            "warningText": "Hello! Are you still there?\n**If we don't get any reply from you, we are going to close this channel in {{day}} day{{grammarDay}}.**"
+        }
+    },
+    "DoBchecking": {
+        "dateFormats": ["DD/MM/YYYY", "YYYY/MM/DD", "YYYY-MM-DD", "YYYY.MM.DD"],
+        "logChannelID": "1459945826464956646"
+    },
+    "aboutText": "./readme.md"
+}

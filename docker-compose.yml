@@ -34,7 +34,7 @@ services:
       DBhost: gurglebot-db_gb-1
       DBusername: gurglebot
       DBpassword: ${DB_PASSWORD}
-      config: ./config/dungen_guardian.json
+      config: ./config/dungeon_guardian.json
 
   bot_ttd:
     build:

@@ -85,7 +85,7 @@ services:
       MYSQL_USER: fe
       MYSQL_PASSWORD: ${DB_FE_PASSWORD}
 
-volume:
+volumes:
   db_fe_data:
 
 networks:

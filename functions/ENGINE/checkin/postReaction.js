@@ -27,6 +27,12 @@ const buttonsSetup = ({ checked, checkedText }) => new ActionRowBuilder()
       .setLabel(checkedText)
       .setDisabled(checked)
       .setStyle(ButtonStyle.Secondary),
+    new ButtonBuilder()
+      .setCustomId('checkin_COMPONENT_button_dob_idtutorial')
+      .setEmoji('🪪')
+      .setLabel('ID Tutorial')
+      .setDisabled(checked)
+      .setStyle(ButtonStyle.Secondary),
   ]);
 
 async function getDate(channel) {

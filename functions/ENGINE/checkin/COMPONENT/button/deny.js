@@ -18,6 +18,10 @@ module.exports.run = async (interaction, timedOut = false) => {
   if (user) {
     user.send({ embeds: [embed] }).catch((e) => null);
     if (!config.checkin.doNotKick) await user.kick('Checkin Denied');
+    else {
+      await client.functions.get('ENGINE_checkin_transcriptChannel').run(checkinChannel);
+      checkinChannel.delete();
+    }
     // channel deletion is handled in member remove event. But if user has already left, channel needs to be deleted
   } else {
     // deletion on normal user leave is handled in a different event. hence this is a else-statement.

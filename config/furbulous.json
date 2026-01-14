@@ -36,7 +36,7 @@
         "hideOpenChannels": "1460315811347562576",
         "doNotKick": true,
         "messages": {
-            "checkinStart": "**Hello there <@!{{userID}}>!**\n\nWelcome to **Furbulous!** Before we can let you in I'm going to ask you some questions :3\n\n- Are you 18+?\n- How did you find us?\n- Have you read, and do you agree to all of the rules?\n- Please verify as described in <#1459937443938570240>\n\nIf you have answered these questions, please ping the \\`@Bouncer\\` role once and a crew member will be with you shortly to complete your verification!",
+            "checkinStart": "**Hello there <@!{{userID}}>!**\n\nWelcome to **Furbulous!** Before we can let you in I'm going to ask you some questions :3\n\n- Are you 18+?\n- How did you find us?\n- Have you read, and do you agree to all of the rules?\n- Please verify as described in <#1459937443938570240>\n\nIf you have answered these questions, please ping the \`@Bouncer\` role once and a crew member will be with you shortly to complete your verification!",
             "serverWelcome": "**<@!{{userID}}>, the door   open, you are now verified :D**\nEnjoy your stay and have fun! For any questions or suggestions, please contact us at #contact-us."
         },
         "reminders": {

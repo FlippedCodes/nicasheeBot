@@ -24,7 +24,7 @@
         "ignoreChannels": ["1257780437045084222", "1257780385287241810"],
         "checkinRoles": ["1257793798986141707"],
         "messages": {
-            "checkinStart": "Hello, <@!{{userID}}>! Welcome to the tavern. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite?\n2. Are you interested in the vore and the Dungeons and Dragons communities?\n3. What is your Date of Birth? (Make sure your DoB is written in the YYYY-MM-DD format.)\n4. Have you read, and do you agree to, all of the <#1257780385287241810>?\n\nWhen you've answered these questions please ping the \\`@Moderator\\` role **once** and a staff member will be with you shortly to complete your verification.",
+            "checkinStart": "Hello, <@!{{userID}}>! Welcome to the tavern. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite?\n2. Are you interested in the vore and the Dungeons and Dragons communities?\n3. What is your Date of Birth? (Make sure your DoB is written in the YYYY-MM-DD format.)\n4. Have you read, and do you agree to, all of the <#1257780385287241810>?\n\nWhen you've answered these questions please ping the `@Moderator` role **once** and a staff member will be with you shortly to complete your verification.",
             "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nFeel free to go over to <#1257798148642967672> and get yourself some roles depending on your interests!\nWe can't wait to have fun with you here!"
         }
     },

@@ -24,7 +24,7 @@
         "ignoreChannels": ["1441962596440739850"],
         "checkinRoles": ["1441560658926899395"],
         "messages": {
-            "checkinStart": "Haiii <@!{{userID}}>! Welcome to the **[18+] The Vore Resort**. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite and why did you join us?\n2. What is Vore to you?\n3. What is your Date of Birth and Age?\n4. Have you read, and do you agree to, all of the <#1441968236945080351>?\n\nWhen you've answered these questions please ping the \\`@Moderators\\` role **once** and a staff member will be with you shortly to complete your verification.",
+            "checkinStart": "Haiii <@!{{userID}}>! Welcome to the **[18+] The Vore Resort**. \nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite and why did you join us?\n2. What is Vore to you?\n3. What is your Date of Birth and Age?\n4. Have you read, and do you agree to, all of the <#1441968236945080351>?\n\nWhen you've answered these questions please ping the `@Moderators` role **once** and a staff member will be with you shortly to complete your verification.",
             "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nPlease have a read of <#1441560658973036582>!\nWe can't wait to have fun with you here!"
         }
     },

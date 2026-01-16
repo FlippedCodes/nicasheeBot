@@ -36,7 +36,7 @@
         "hideOpenChannels": "1460315811347562576",
         "doNotKick": true,
         "messages": {
-            "checkinStart": "**Hello there <@!{{userID}}>!**\n\nWelcome to **Furbulous!** Before we can let you in I'm going to ask you some questions :3\n\n- Are you 18+?\n- How did you find us?\n- Have you read, and do you agree to all of the rules?\n- Please verify as described in <#1459937443938570240>\n\nIf you have answered these questions, please ping the `@Bouncer` role once and a crew member will be with you shortly to complete your verification!",
+            "checkinStart": "Hi there <@!{{userID}}>!\n\nWelcome to Furbulous, in order to let you in, we need some information from you:\n\n- **How did you find Furbulous?**\n- **What is your Date of Birth?** (Please in the format `DD-MM-YYYY`)\n\n**Please provide your ID as followed:**\n1. 🔹 Make a photo of your ID. (This needs to be clear, if not we might ask for another one)\n2. 🔹 Remove all the information except your Date of Birth and Expiration Date.\n3. 🔹 Write your username on paper and put it on the ID.\n4. 🔹 Upload the photo.\n\nPlease ping the @Verifier role so they can check your ticket, if all is good, they will provide you the Verified role and you'll have access to the Furbulous Discord and VR sessions!\n\nhttps://cdn.discordapp.com/attachments/1460587481975099483/1460682510630391860/ID.png?ex=696b19d8&is=6969c858&hm=c7f7aed6e801f7e06f0faa95537dccb03f41a269efb4da6de722b95c5ff44812&",
             "serverWelcome": "**<@!{{userID}}>, the door open, you are now verified :D**\nEnjoy your stay and have fun! For any questions or suggestions, please contact us at <#1460403174811766794>"
         },
         "reminders": {

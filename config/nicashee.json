@@ -32,6 +32,13 @@
         "messages": {
             "checkinStart": "Haiii <@!{{userID}}>! Welcome to Devoravore. <:nicshahappy:921955441066508350>\nBefore we let you in I'm going to ask you some questions^^!\n\n1. Where did you get your invite?\n2. Are you interested in the vore and the furry/scalie communities?\n3. What is your Date of Birth? (Make sure your DoB is written in the DD/MM/YYYY format.)\n4. Have you read, and do you agree to, all of the <#730609289504227400>?\n\nWhen you've answered these questions please ping the `@Moderation` role **once** and a staff member will be with you shortly to complete your verification.",
             "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nPlease have a read of <#973256166807306240>!\nWe can't wait to have fun with you here!"
+        },
+        "reminders": {
+            "checkIntervalHours": 1,
+            "reminderIntervalHours": 24,
+            "reminderAmount": 3,
+            "warningTitle": "Reminder",
+            "warningText": "Hello! Are you still there?\n**If we don't get any reply from you, we are going to close this channel in {{day}} day{{grammarDay}}.**"
         }
     },
     "reducedRP": {

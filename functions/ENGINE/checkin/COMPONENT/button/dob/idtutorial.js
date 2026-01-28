@@ -8,7 +8,7 @@ module.exports.run = async (interaction) => {
   const channel = await interaction.guild.channels.cache.get(config.checkin.idTutorial.channel);
   const message = await channel.messages.fetch(config.checkin.idTutorial.message);
   const index = config.checkin.idTutorial.titleIndex;
-  const content = `<@${interaction.channel.name}>\n\n# ${index ? message.content.split(config.checkin.idTutorial.searchString)[index] : message.content}`;
+  const content = `<@${interaction.channel.name}>\n\n# ${index !== null ? message.content.split(config.checkin.idTutorial.searchString)[index] : message.content}`;
 
   interaction.channel.send(content);
   messageSuccess(interaction, 'Instructions sent.', undefined, true);

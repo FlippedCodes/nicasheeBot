@@ -9,6 +9,7 @@
             "SETUP_DBSync",
             "SETUP_initCommands",
             "SETUP_offlineStat",
+"SETUP_interval_checkinReminder",
             "SETUP_status"
         ]
     },

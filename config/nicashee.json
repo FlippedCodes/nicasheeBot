@@ -9,7 +9,7 @@
             "SETUP_DBSync",
             "SETUP_initCommands",
             "SETUP_offlineStat",
-"SETUP_interval_checkinReminder",
+            "SETUP_interval_checkinReminder",
             "SETUP_status"
         ]
     },
@@ -22,7 +22,7 @@
         "idTutorial": {
             "channel": "971303538250625024",
             "message": "1345649876242796595",
-            "searchString": "_ _",
+            "searchString": "**__",
             "titleIndex": 0
         },
         "categoryID": "851237127081426974",

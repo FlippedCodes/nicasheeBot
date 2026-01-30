@@ -24,7 +24,7 @@ module.exports.run = async () => {
     const checkinCategory = await client.channels.cache.get(config.checkin.categoryID);
     const channels = await checkinCategory.children.cache;
     // loop through channel list
-    channels.forEach(async (channel) => {
+    channels.filter((channel) => !config.checkin.ignoreChannels.includes(channel.id)).forEach(async (channel) => {
       // get latest message
       // WA cause #lastMessage is null
       const latestMassage = await channel.messages.fetch(channel.lastMessageId);

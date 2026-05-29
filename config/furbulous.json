@@ -13,8 +13,8 @@
             "SETUP_status"
         ]
     },
-    "report": {
-        "channel": "1460403174811766794"
+    "reportManager": {
+        "channelID": "1460403174811766794"
     },
     "checkin": {
         "reaction": {

@@ -10,7 +10,8 @@
             "SETUP_initCommands",
             "SETUP_offlineStat",
             "SETUP_interval_checkinReminder",
-            "SETUP_status"
+            "SETUP_status",
+            "SETUP_reportButton"
         ]
     },
     "reportManager": {

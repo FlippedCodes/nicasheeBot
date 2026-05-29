@@ -75,17 +75,17 @@ client.on('messageCreate', (message) => {
   client.functions.get('EVENT_messageCreate').run(message).catch(ERR);
 });
 
-client.on('guildMemberAdd', (member) => {
-  client.functions.get('EVENT_guildMemberAdd').run(member);
-});
+// client.on('guildMemberAdd', (member) => {
+//   client.functions.get('EVENT_guildMemberAdd').run(member);
+// });
 
 client.on('guildMemberRemove', (member) => {
   client.functions.get('EVENT_guildMemberRemove').run(member).catch(ERR);
 });
 
-client.on('guildMemberUpdate', (memberOld, memberNew) => {
-  client.functions.get('EVENT_guildMemberUpdate').run(memberOld, memberNew);
-});
+// client.on('guildMemberUpdate', (memberOld, memberNew) => {
+//   client.functions.get('EVENT_guildMemberUpdate').run(memberOld, memberNew);
+// });
 
 // trigger on reaction with raw package
 client.on('raw', async (packet) => {

@@ -64,18 +64,26 @@ module.exports.run = async (interaction) => {
   switch (reportType) {
     case 'userText':
       modal.addComponents([new ActionRowBuilder().addComponents(messageLink)]);
+      modal.addComponents([new ActionRowBuilder().addComponents(reason)]);
+      modal.addComponents([new ActionRowBuilder().addComponents(refUsers)]);
       break;
     case 'userMeet':
       modal.addComponents([new ActionRowBuilder().addComponents(meet)]);
+      modal.addComponents([new ActionRowBuilder().addComponents(reason)]);
+      modal.addComponents([new ActionRowBuilder().addComponents(refUsers)]);
       break;
     case 'suggestion':
       modal.addComponents([new ActionRowBuilder().addComponents(suggestion)]);
       break;
     case 'userVC':
       modal.addComponents([new ActionRowBuilder().addComponents(voiceChannel)]);
+      modal.addComponents([new ActionRowBuilder().addComponents(reason)]);
+      modal.addComponents([new ActionRowBuilder().addComponents(refUsers)]);
       break;
     case 'moderator':
       modal.addComponents([new ActionRowBuilder().addComponents(messageLink)]);
+      modal.addComponents([new ActionRowBuilder().addComponents(reason)]);
+      modal.addComponents([new ActionRowBuilder().addComponents(refUsers)]);
       break;
     case 'admin':
       const replyMessage = await messageSuccess(interaction, 'Please DM an admin or a owner directly.\nThere is no way reasonable way to handle this with this system.');
@@ -83,8 +91,6 @@ module.exports.run = async (interaction) => {
     default:
       return 'Unknown type';
   }
-  modal.addComponents([new ActionRowBuilder().addComponents(reason)]);
-  modal.addComponents([new ActionRowBuilder().addComponents(refUsers)]);
   await interaction.showModal(modal);
 
   const roleMembers = reportType === 'moderator' ? `<@&${config.ownerRole}>` : `<@&${config.teamRole}>`;

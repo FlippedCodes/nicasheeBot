@@ -13,14 +13,17 @@ const consent = new TextInputBuilder()
   .setPlaceholder('Type "yes", if you understand that abusing the system will result in punishment.')
   .setStyle(TextInputStyle.Short);
 
-const consentDM = new TextInputBuilder()
-  .setCustomId('reports_COMPONENT_modalResponse_consentDM')
+const meet = new TextInputBuilder()
+  .setCustomId('reports_COMPONENT_modalResponse_meet')
   .setRequired(true)
-  .setMinLength(3)
-  .setMaxLength(3)
-  .setLabel('This is about phishing, scam or hacked user.')
-  .setPlaceholder('Type "yes", if you understand, that we don\'t discuss private DM drama.')
+  .setLabel('At which Furbulous meet did your incident happen.')
   .setStyle(TextInputStyle.Short);
+
+const suggestion = new TextInputBuilder()
+  .setCustomId('reports_COMPONENT_modalResponse_suggestion')
+  .setRequired(true)
+  .setLabel('Let us know what is on your mind.')
+  .setStyle(TextInputStyle.Paragraph);
 
 const reason = new TextInputBuilder()
   .setCustomId('reports_COMPONENT_modalResponse_reason')
@@ -56,14 +59,17 @@ module.exports.run = async (interaction) => {
   const reportType = interaction.values[0];
   const modal = new ModalBuilder()
     .setCustomId(interaction.id)
-    .setTitle('New Report');
+    .setTitle('New Ticket');
   modal.addComponents([new ActionRowBuilder().addComponents(consent)]);
   switch (reportType) {
     case 'userText':
       modal.addComponents([new ActionRowBuilder().addComponents(messageLink)]);
       break;
-    case 'userDM':
-      modal.addComponents([new ActionRowBuilder().addComponents(consentDM)]);
+    case 'userMeet':
+      modal.addComponents([new ActionRowBuilder().addComponents(meet)]);
+      break;
+    case 'suggestion':
+      modal.addComponents([new ActionRowBuilder().addComponents(suggestion)]);
       break;
     case 'userVC':
       modal.addComponents([new ActionRowBuilder().addComponents(voiceChannel)]);
@@ -81,15 +87,15 @@ module.exports.run = async (interaction) => {
   modal.addComponents([new ActionRowBuilder().addComponents(refUsers)]);
   await interaction.showModal(modal);
 
-  const roleMembers = reportType === 'moderator' ? `<@&${config.adminRole}>` : `<@&${config.teamRole}>`;
-  const body = [`### Relevant for\n> ${roleMembers}`, `### Reported by\n> ${interaction.member}`, `### Report type\n> ${reportType}`];
+  const roleMembers = reportType === 'moderator' ? `<@&${config.ownerRole}>` : `<@&${config.teamRole}>`;
+  const body = [`### Relevant for\n> ${roleMembers}`, `### Opened by\n> ${interaction.member}`, `### Report type\n> ${reportType}`];
 
   const filter = (i) => interaction.id === i.customId;
   interaction.awaitModalSubmit({ time: 900_000, filter })
     .then(async (interactionAnswer) => {
       interactionAnswer.deferUpdate();
       const userAnswers = interactionAnswer.fields.fields.map((field) => {
-        const label = [consent, consentDM, messageLink, voiceChannel, reason, refUsers].find((question) => question.data.custom_id === field.customId).data.label;
+        const label = [consent, meet, suggestion, messageLink, voiceChannel, reason, refUsers].find((question) => question.data.custom_id === field.customId).data.label;
         const value = field.value.replaceAll('\n', '\n> ');
         return { label, value };
       });

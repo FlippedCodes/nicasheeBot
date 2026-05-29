@@ -15,7 +15,7 @@ async function createChannel(guild, user, topic) {
   setTimeout(async () => {
     await channel.permissionOverwrites.edit(user.id, { ViewChannel: true }).catch(ERR);
     const checkinMessage = Handlebars.compile(config.checkin.messages.checkinStart);
-    await channel.send(checkinMessage({ userID: user.id })).catch(ERR);
+    await channel.send(checkinMessage({ userID: user.id, randomCode: `${Math.floor(Math.random() * 10000)}`.padStart(4, 0) })).catch(ERR);
   }, 3 * 1000);
 }
 

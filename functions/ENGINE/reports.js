@@ -16,7 +16,7 @@ const consent = new TextInputBuilder()
 const meet = new TextInputBuilder()
   .setCustomId('reports_COMPONENT_modalResponse_meet')
   .setRequired(true)
-  .setLabel('At which Furbulous meet did your incident happen.')
+  .setLabel('At which meet did your incident happen.')
   .setStyle(TextInputStyle.Short);
 
 const suggestion = new TextInputBuilder()

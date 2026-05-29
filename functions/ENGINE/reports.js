@@ -86,7 +86,7 @@ module.exports.run = async (interaction) => {
       modal.addComponents([new ActionRowBuilder().addComponents(refUsers)]);
       break;
     case 'admin':
-      const replyMessage = await messageSuccess(interaction, 'Please DM an admin or a owner directly.\nThere is no way reasonable way to handle this with this system.');
+      const replyMessage = await messageSuccess(interaction, 'Please DM an admin or a owner directly.\nThere is no reasonable way to handle this with this system.');
       return setTimeout(() => replyMessage.delete(), 10000);
     default:
       return 'Unknown type';

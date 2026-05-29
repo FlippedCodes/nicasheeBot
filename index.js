@@ -83,6 +83,10 @@ client.on('guildMemberRemove', (member) => {
   client.functions.get('EVENT_guildMemberRemove').run(member).catch(ERR);
 });
 
+client.on('guildMemberUpdate', (memberOld, memberNew) => {
+  client.functions.get('EVENT_guildMemberUpdate').run(memberOld, memberNew);
+});
+
 // trigger on reaction with raw package
 client.on('raw', async (packet) => {
   if (packet.t === 'MESSAGE_REACTION_ADD' && packet.d.guild_id) {

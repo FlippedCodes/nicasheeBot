@@ -6,7 +6,7 @@ const select = new ActionRowBuilder()
   .addComponents([
     new StringSelectMenuBuilder()
       .setCustomId('reports')
-      .setPlaceholder('Open Report')
+      .setPlaceholder('Open Ticket')
       .addOptions(
         new StringSelectMenuOptionBuilder()
           .setLabel('Feedback/Suggestion')

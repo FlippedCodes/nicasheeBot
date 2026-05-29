@@ -11,7 +11,7 @@ const buttonsSetup = ({ checked, checkedText }) => new ActionRowBuilder()
     new ButtonBuilder()
       .setCustomId('checkin_COMPONENT_button_allow')
       .setEmoji('👌')
-      .setLabel(checkedText !== 'Already checked ID' ? 'Verfiy first' : 'Allow')
+      .setLabel(checkedText !== 'Already checked ID' ? 'Verify first' : 'Allow')
       .setDisabled(checkedText !== 'Already checked ID')
       // Not old enough
       .setStyle(ButtonStyle.Primary),

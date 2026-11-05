@@ -12,7 +12,7 @@ module.exports.run = async (message) => {
   // if (config.reducedRP.channels.includes(message.channel.id)) return client.functions.get('ENGINE_limitedRp').run(message);
 
   // non command function: checkin complete questioning Reaction adding
-  if (message.mentions.roles.has(config.teamRole)
+  if ((message.mentions.roles.has(config.checkin.reactionRole) || message.mentions.roles.has(config.teamRole))
   && message.channel.parentId === config.checkin.categoryID) return client.functions.get('ENGINE_checkin_postReaction').run(message);
 };
 

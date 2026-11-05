@@ -91,9 +91,10 @@ module.exports.run = async (message) => {
   }
 
   // ping team, if not pinged already and only if user uses button/command
-  const messages = await message.channel.messages.fetch();
-  const mentions = messages.filter((message) => message.mentions.roles.has(config.teamRole));
-  if (mentions.size === 0 && message.member.id === userID) message.channel.send(`<@&${config.teamRole}>`);
+  // DEPRECATED: Do not ping team, user already pings
+  // const messages = await message.channel.messages.fetch();
+  // const mentions = messages.filter((message) => message.mentions.roles.has(config.teamRole));
+  // if (mentions.size === 0 && message.member.id === userID) message.channel.send(`<@&${config.teamRole}>`);
 
   const buttonsAdd = buttonsSetup({ checked, checkedText });
   // check, if it was deferred

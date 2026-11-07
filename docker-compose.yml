@@ -60,6 +60,18 @@ services:
       DBpassword: ${DB_PASSWORD}
       config: ./config/theVoreResort.json
 
+  bot_tdd:
+    build:
+      context: ./
+    restart: always
+    environment:
+      DCtoken: ${DISCORD_BOT_TOKEN_TDD}
+      DBdatabase: gurglebot
+      DBhost: gurglebot-db_gb-1
+      DBusername: gurglebot
+      DBpassword: ${DB_PASSWORD}
+      config: ./config/theDeerlyDevoured.json
+
   bot_fb:
     build:
       context: ./

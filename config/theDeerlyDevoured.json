@@ -1,0 +1,50 @@
+{
+    "name": "Buck’s Maw",
+    "guildId": "1567053123703537686",
+    "teamRole": "1567057034250027078",
+    "ownerRole": "1567056471361847388",
+    "setup": {
+        "logStatusChannel": "1568470108228026439",
+        "setupFunctions": [
+            "SETUP_DBSync",
+            "SETUP_initCommands",
+            "SETUP_offlineStat",
+            "SETUP_interval_checkinReminder",
+            "SETUP_status"
+        ]
+    },
+    "checkin": {
+        "reaction": {
+            "channel": "1567232094613012561",
+            "message": "1568471767448559762",
+            "emoji": "🦌"
+        },
+        "idTutorial": {
+            "channel": "1567206617106227281",
+            "message": "1567219463940735080",
+            "searchString": "**__",
+            "titleIndex": 1
+        },
+        "categoryID": "1567203712714145953",
+        "welcomeChannel": "1568468898070663320",
+        "archiveChannel": "1568470108228026439",
+        "ignoreChannels": ["1567232094613012561"],
+        "checkinRoles": ["1567078920774492170"],
+        "messages": {
+            "checkinStart": "Hey there <@!{{userID}}>! Welcome to [18+]The Deerly Devoured!\nBefore we let you in I'm going to ask you some questions, so a staff member can let you in!\n\n1️⃣ - How did you find our server?\n2️⃣ - What interests you about the Vore and Furry/Scalie Communities? \n3️⃣ - What is your favorite kind of vore, and why?\n4️⃣ - Please let us know your Date of Birth, in the following format: `DD-MM-YYYY`.\n5️⃣ - Lastly Please provide your ID as described here: <#1567206617106227281>.\n\nWhen you've answered these questions please ping the `@Moderation` role **once** and a staff member will be with you shortly to complete your verification.",
+            "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nPlease have a read of <#1567321718937096313>!\nWe can't wait to have fun with you here!"
+        },
+        "reminders": {
+            "checkIntervalHours": 1,
+            "reminderIntervalHours": 24,
+            "reminderAmount": 3,
+            "warningTitle": "Reminder",
+            "warningText": "Hello! Are you still there?\n**If we don't get any reply from you, we are going to close this channel in {{day}} day{{grammarDay}}.**"
+        }
+    },
+    "DoBchecking": {
+        "dateFormats": ["DD/MM/YYYY", "YYYY/MM/DD", "DD-MM-YYYY", "DD.MM.YYYY", "YYYY-MM-DD", "YYYY.MM.DD"],
+        "logChannelID": "1568470108228026439"
+    },
+    "aboutText": "./readme.md"
+}

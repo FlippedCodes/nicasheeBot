@@ -4,7 +4,7 @@
     "teamRole": "1567057034250027078",
     "ownerRole": "1567056471361847388",
     "setup": {
-        "logStatusChannel": "1568470108228026439",
+        "logStatusChannel": "1568470081653182574",
         "setupFunctions": [
             "SETUP_DBSync",
             "SETUP_initCommands",
@@ -31,8 +31,8 @@
         "ignoreChannels": ["1567232094613012561"],
         "checkinRoles": ["1567078920774492170"],
         "messages": {
-            "checkinStart": "Hey there <@!{{userID}}>! Welcome to [18+]The Deerly Devoured!\nBefore we let you in I'm going to ask you some questions, so a staff member can let you in!\n\n1️⃣ - How did you find our server?\n2️⃣ - What interests you about the Vore and Furry/Scalie Communities? \n3️⃣ - What is your favorite kind of vore, and why?\n4️⃣ - Please let us know your Date of Birth, in the following format: `DD-MM-YYYY`.\n5️⃣ - Lastly Please provide your ID as described here: <#1567206617106227281>.\n\nWhen you've answered these questions please ping the `@Moderation` role **once** and a staff member will be with you shortly to complete your verification.",
-            "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nPlease have a read of <#1567321718937096313>!\nWe can't wait to have fun with you here!"
+            "checkinStart": "Hey there <@!{{userID}}>! Welcome to The Deerly Devoured!\nBefore we let you in, I'm going to ask you some questions, so a staff member can let you in!\n\n1️⃣ - How did you find our server?\n2️⃣ - Are you in any other vore roleplay servers?\n3️⃣ - Could you tell us some of the vore types you're into and describe one of them in your own words please?\n4️⃣ - Please let us know your Date of Birth, in the following format: `DD-MM-YYYY`. (Day, Month and Year)\n5️⃣ - Lastly Please provide your ID as described here: <#1567206617106227281>.\n\nWhen you've answered these questions, please ping the `@Deerly Devoured Staff` role **once** and a staff member will be with you shortly to complete your verification.",
+            "serverWelcome": "<@!{{userID}}>, you have been verified^^!\nPlease select your roles <#1567321718937096313>!\nWe can't wait for you to be here!"
         },
         "reminders": {
             "checkIntervalHours": 1,
@@ -43,8 +43,8 @@
         }
     },
     "DoBchecking": {
-        "dateFormats": ["DD/MM/YYYY", "YYYY/MM/DD", "DD-MM-YYYY", "DD.MM.YYYY", "YYYY-MM-DD", "YYYY.MM.DD"],
-        "logChannelID": "1568470108228026439"
+        "dateFormats": ["YYYY-MM-DD", "YYYY/MM/DD", "DD-MM-YYYY", "DD.MM.YYYY", "DD/MM/YYYY", "YYYY.MM.DD"],
+        "logChannelID": "1568470081653182574"
     },
     "aboutText": "./readme.md"
 }

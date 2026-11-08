@@ -35,10 +35,9 @@ module.exports.run = async (reaction) => {
     // TODO: add DB table to check if user was in guild before
     // Create channel, set settings and edit channel topic
     const topic = `
-    Username: ${user.tag}
-    Avatar: ${user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })}
-    Days since creation: ${dayDiff};
-    Creation date: ${user.createdAt}`;
+Username: ${user.tag}
+Avatar: ${user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })}
+`;
     await createChannel(guild, user, topic);
   }
   // remove user reaction

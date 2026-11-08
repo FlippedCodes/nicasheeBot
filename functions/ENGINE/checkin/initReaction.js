@@ -1,13 +1,5 @@
 const Handlebars = require('handlebars');
 
-// calculate user creation
-function calcUserAge(user) {
-  const currentDate = new Date();
-  const creationDate = new Date(user.createdAt);
-  const msDiff = Math.abs(currentDate - creationDate);
-  return Math.ceil(msDiff / (1000 * 60 * 60 * 24));
-}
-
 async function createChannel(guild, user, topic) {
   const channel = await guild.channels.create({ name: user.id, topic, parent: config.checkin.categoryID }).catch(ERR);
   await channel.lockPermissions().catch(ERR);
@@ -31,7 +23,6 @@ module.exports.run = async (reaction) => {
   // check if user already has check-in channel
   const checkinChannel = await guild.channels.cache.find((channel) => channel.name === user.id);
   if (!checkinChannel) {
-    const dayDiff = calcUserAge(user);
     // TODO: add DB table to check if user was in guild before
     // Create channel, set settings and edit channel topic
     const topic = `

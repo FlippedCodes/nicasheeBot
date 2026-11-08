@@ -28,7 +28,7 @@
         "categoryID": "1567203712714145953",
         "welcomeChannel": "1568468898070663320",
         "archiveChannel": "1568470108228026439",
-        "ignoreChannels": ["1567232094613012561"],
+        "ignoreChannels": [],
         "checkinRoles": ["1567078920774492170"],
         "messages": {
             "checkinStart": "Hey there <@!{{userID}}>! Welcome to The Deerly Devoured!\nBefore we let you in, I'm going to ask you some questions, so a staff member can let you in!\n\n1️⃣ - How did you find our server?\n2️⃣ - Are you in any other vore roleplay servers?\n3️⃣ - Could you tell us some of the vore types you're into and describe one of them in your own words please?\n4️⃣ - Please let us know your Date of Birth, in the following format: `DD-MM-YYYY`. (Day, Month and Year)\n5️⃣ - Lastly Please provide your ID as described here: <#1567206617106227281>.\n\nWhen you've answered these questions, please ping the `@Deerly Devoured Staff` role **once** and a staff member will be with you shortly to complete your verification.",
